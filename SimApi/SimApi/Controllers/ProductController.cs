@@ -19,21 +19,21 @@ public class ProductController : ControllerBase
     [HttpGet]
     public List<Product> GetAll()
     {
-        var list = unitOfWork.ProductRepository.GetAll();
+        var list = unitOfWork.GetRepository<Product>().GetAll();
         return list;
     }
 
     [HttpGet("{id}")]
     public Product GetById(int id)
     {
-        var row = unitOfWork.ProductRepository.GetById(id);
+        var row = unitOfWork.GetRepository<Product>().GetById(id);
         return row;
     }
 
     [HttpPost]
     public void Post([FromBody] Product request)
     {
-        unitOfWork.ProductRepository.Insert(request);
+        unitOfWork.GetRepository<Product>().Insert(request);
         unitOfWork.Complete();
     }
 
@@ -41,7 +41,7 @@ public class ProductController : ControllerBase
     public void Put(int id, [FromBody] Product request)
     {
         request.Id = id;
-        unitOfWork.ProductRepository.Update(request);
+        unitOfWork.GetRepository<Product>().Update(request);
         unitOfWork.Complete();
     }
 
@@ -49,7 +49,7 @@ public class ProductController : ControllerBase
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
-        unitOfWork.ProductRepository.DeleteById(id);
+        unitOfWork.GetRepository<Product>().DeleteById(id);
         unitOfWork.Complete();
     }
 
