@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimApi.Service", "SimApi\SimApi.Service.csproj", "{126427A3-1AA9-4406-9BF8-898B1E51CD73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimApi.Service", "SimApi\SimApi.Service.csproj", "{126427A3-1AA9-4406-9BF8-898B1E51CD73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimApi.Base", "SimApi.Base\SimApi.Base.csproj", "{0316C0D6-093A-406C-8F43-E3578CBEF626}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimApi.Base", "SimApi.Base\SimApi.Base.csproj", "{0316C0D6-093A-406C-8F43-E3578CBEF626}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimApi.Data", "SimApi.Data\SimApi.Data.csproj", "{F079E885-4FAC-4ED0-88FA-D2190AF6AE8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimApi.Data", "SimApi.Data\SimApi.Data.csproj", "{F079E885-4FAC-4ED0-88FA-D2190AF6AE8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimApi.Schema", "SimApi.Schema\SimApi.Schema.csproj", "{F271A025-6201-4D2D-9BB0-4E037C0324DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimApi.Schema", "SimApi.Schema\SimApi.Schema.csproj", "{F271A025-6201-4D2D-9BB0-4E037C0324DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

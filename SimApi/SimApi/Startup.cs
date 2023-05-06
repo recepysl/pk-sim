@@ -1,4 +1,5 @@
-﻿using SimApi.Service.RestExtension;
+﻿using SimApi.Data.Uow;
+using SimApi.Service.RestExtension;
 
 namespace SimApi.Service;
 
@@ -18,6 +19,7 @@ public class Startup
 
         services.AddCustomSwaggerExtension();
         services.AddDbContextExtension(Configuration);
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
 
 

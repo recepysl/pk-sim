@@ -25,11 +25,4 @@
 		<ProjectReference Include="..\SimApi.Base\SimApi.Base.csproj" />
 	</ItemGroup>
 
-	
-
-	<ItemGroup>
-	  <Folder Include="Repository\" />
-	  <Folder Include="UnitOfWork\" />
-	</ItemGroup>
-
 </Project>

@@ -11,11 +11,11 @@ public class CategoryController : ControllerBase
     private SimDbContext context;
     public CategoryController(SimDbContext context)
     {
-        this.context = context; 
+        this.context = context;
     }
 
 
-    [HttpGet] 
+    [HttpGet]
     public List<Category> GetAll()
     {
         var list = context.Set<Category>().ToList();
@@ -25,7 +25,7 @@ public class CategoryController : ControllerBase
     [HttpGet("{id}")]
     public Category GetById(int id)
     {
-        var row = context.Set<Category>().Where(x=> x.Id == id).FirstOrDefault();
+        var row = context.Set<Category>().Where(x => x.Id == id).FirstOrDefault();
         return row;
     }
 
@@ -37,7 +37,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public void Put(int id,[FromBody] Category request)
+    public void Put(int id, [FromBody] Category request)
     {
         request.Id = id;
         context.Set<Category>().Update(request);
