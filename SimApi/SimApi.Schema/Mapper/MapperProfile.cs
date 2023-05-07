@@ -13,6 +13,8 @@ public class MapperProfile : Profile
         CreateMap<Product, ProductResponse>();
         CreateMap<ProductRequest, Product>();
 
+
+
     }
 
 

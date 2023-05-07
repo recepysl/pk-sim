@@ -9,4 +9,5 @@ public interface IUnitOfWork : IDisposable
     IGenericRepository<Product> ProductRepository { get; }
 
     void Complete();
+    void CompleteWithTransaction();
 }

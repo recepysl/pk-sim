@@ -16,8 +16,4 @@
 		<ProjectReference Include="..\SimApi.Schema\SimApi.Schema.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Mapper\" />
-	</ItemGroup>
-
 </Project>

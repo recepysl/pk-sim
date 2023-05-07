@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SimApi.Data.Context;
 using SimApi.Data.Domain;
 using SimApi.Schema;
@@ -30,7 +31,7 @@ public class CategoryController : ControllerBase
     [HttpGet("{id}")]
     public CategoryResponse GetById(int id)
     {
-        var row = context.Set<Category>().Where(x => x.Id == id).FirstOrDefault();
+        var row = context.Set<Category>().FirstOrDefault(x => x.Id == id);
         var mapped = mapper.Map<CategoryResponse>(row);
         return mapped;
     }

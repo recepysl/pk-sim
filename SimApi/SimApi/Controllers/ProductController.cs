@@ -40,7 +40,7 @@ public class ProductController : ControllerBase
     {
         var entity = mapper.Map<Product>(request);
         unitOfWork.ProductRepository.Insert(entity);
-        unitOfWork.Complete();
+        unitOfWork.CompleteWithTransaction();
     }
 
     [HttpPut("{id}")]
