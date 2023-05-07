@@ -38,6 +38,7 @@ public class UserController : ControllerBase
     [HttpPost]
     public void Post([FromBody] UserRequest request)
     {
+        request.UserName = request.UserName.Trim().ToLower();
         var entity = mapper.Map<User>(request);
         repository.Insert(entity);
         repository.Complete();

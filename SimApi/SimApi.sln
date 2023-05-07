@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimApi.Data", "SimApi.Data\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimApi.Schema", "SimApi.Schema\SimApi.Schema.csproj", "{F271A025-6201-4D2D-9BB0-4E037C0324DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimApi.Operation", "SimApi.Operation\SimApi.Operation.csproj", "{21134E2F-734A-4675-98FA-B2638639A5F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F271A025-6201-4D2D-9BB0-4E037C0324DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F271A025-6201-4D2D-9BB0-4E037C0324DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F271A025-6201-4D2D-9BB0-4E037C0324DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21134E2F-734A-4675-98FA-B2638639A5F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21134E2F-734A-4675-98FA-B2638639A5F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21134E2F-734A-4675-98FA-B2638639A5F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21134E2F-734A-4675-98FA-B2638639A5F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

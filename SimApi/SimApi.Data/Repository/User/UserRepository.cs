@@ -10,4 +10,8 @@ public class UserRepository : GenericRepository<User>, IUserRepository
 
     }
 
+    public User GetByUsername(string name)
+    {
+        return dbContext.Set<User>().Where(x => x.UserName == name).FirstOrDefault();
+    }
 }
