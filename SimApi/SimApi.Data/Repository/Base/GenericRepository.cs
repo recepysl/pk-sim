@@ -5,6 +5,7 @@ namespace SimApi.Data.Repository;
 public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity : class
 {
     protected readonly SimDbContext dbContext;
+    private bool disposed;
 
     public GenericRepository(SimDbContext dbContext)
     {
@@ -42,5 +43,48 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
     public void Update(Entity entity)
     {
         dbContext.Set<Entity>().Update(entity);
+    }
+
+
+
+    public void Complete()
+    {
+        dbContext.SaveChanges();
+    }
+
+    public void CompleteWithTransaction()
+    {
+        using (var dbDcontextTransaction = dbContext.Database.BeginTransaction())
+        {
+            try
+            {
+                dbContext.SaveChanges();
+                dbDcontextTransaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                // logging
+                dbDcontextTransaction.Rollback();
+            }
+        }
+    }
+
+
+    private void Clean(bool disposing)
+    {
+        if (!disposed)
+        {
+            if (disposing)
+            {
+                dbContext.Dispose();
+            }
+        }
+
+        disposed = true;
+        GC.SuppressFinalize(this);
+    }
+    public void Dispose()
+    {
+        Clean(true);
     }
 }

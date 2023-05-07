@@ -1,20 +1,21 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SimApi.Data.Domain;
-using SimApi.Data.Repository;
+using SimApi.Data.Uow;
 using SimApi.Schema;
 
 namespace SimApi.Service.Controllers;
 
 [Route("simapi/v1/[controller]")]
 [ApiController]
-public class ProductController : ControllerBase
+[NonController]
+public class Product1Controller : ControllerBase
 {
-    private readonly IProductRepository repository;
+    private readonly IUnitOfWork unitOfWork;
     private IMapper mapper;
-    public ProductController(IMapper mapper, IProductRepository repository)
+    public Product1Controller(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        this.repository = repository;
+        this.unitOfWork = unitOfWork;
         this.mapper = mapper;
     }
 
@@ -22,7 +23,7 @@ public class ProductController : ControllerBase
     [HttpGet]
     public List<ProductResponse> GetAll()
     {
-        var list = repository.GetAll();
+        var list = unitOfWork.ProductRepository.GetAll();
         var mapped = mapper.Map<List<ProductResponse>>(list);
         return mapped;
     }
@@ -30,7 +31,7 @@ public class ProductController : ControllerBase
     [HttpGet("{id}")]
     public ProductResponse GetById(int id)
     {
-        var row = repository.GetById(id);
+        var row = unitOfWork.ProductRepository.GetById(id);
         var mapped = mapper.Map<ProductResponse>(row);
         return mapped;
     }
@@ -39,8 +40,8 @@ public class ProductController : ControllerBase
     public void Post([FromBody] ProductRequest request)
     {
         var entity = mapper.Map<Product>(request);
-        repository.Insert(entity);
-        repository.Complete();
+        unitOfWork.ProductRepository.Insert(entity);
+        unitOfWork.CompleteWithTransaction();
     }
 
     [HttpPut("{id}")]
@@ -48,16 +49,16 @@ public class ProductController : ControllerBase
     {
         request.Id = id;
         var entity = mapper.Map<Product>(request);
-        repository.Update(entity);
-        repository.Complete();
+        unitOfWork.ProductRepository.Update(entity);
+        unitOfWork.Complete();
     }
 
 
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
-        repository.DeleteById(id);
-        repository.Complete();
+        unitOfWork.ProductRepository.DeleteById(id);
+        unitOfWork.Complete();
     }
 
 }

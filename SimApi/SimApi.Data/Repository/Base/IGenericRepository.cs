@@ -8,4 +8,7 @@ public interface IGenericRepository<Entity> where Entity : class
     void DeleteById(int id);
     void Delete(Entity entity);
     List<Entity> GetAll();
+
+    void Complete();
+    void CompleteWithTransaction();
 }

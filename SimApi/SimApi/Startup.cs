@@ -21,6 +21,7 @@ public class Startup
         services.AddDbContextExtension(Configuration);
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddMapperExtension();
+        services.AddRepositoryExtension();
 
     }
 

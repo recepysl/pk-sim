@@ -1,20 +1,21 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SimApi.Data.Context;
 using SimApi.Data.Domain;
-using SimApi.Data.Repository;
 using SimApi.Schema;
 
 namespace SimApi.Service.Controllers;
 
 [Route("simapi/v1/[controller]")]
 [ApiController]
-public class CategoryController : ControllerBase
+[NonController]
+public class Category1Controller : ControllerBase
 {
-    private ICategoryRepository repository;
+    private SimDbContext context;
     private IMapper mapper;
-    public CategoryController(ICategoryRepository repository, IMapper mapper)
+    public Category1Controller(SimDbContext context, IMapper mapper)
     {
-        this.repository = repository;
+        this.context = context;
         this.mapper = mapper;
     }
 
@@ -22,7 +23,7 @@ public class CategoryController : ControllerBase
     [HttpGet]
     public List<CategoryResponse> GetAll()
     {
-        var list = repository.GetAll();
+        var list = context.Set<Category>().ToList();
         var mapped = mapper.Map<List<CategoryResponse>>(list);
         return mapped;
     }
@@ -30,24 +31,17 @@ public class CategoryController : ControllerBase
     [HttpGet("{id}")]
     public CategoryResponse GetById(int id)
     {
-        var row = repository.GetById(id);
+        var row = context.Set<Category>().FirstOrDefault(x => x.Id == id);
         var mapped = mapper.Map<CategoryResponse>(row);
         return mapped;
-    }
-
-    [HttpGet("Count")]
-    public int Count()
-    {
-        var row = repository.GetAllCount();
-        return row;
     }
 
     [HttpPost]
     public CategoryResponse Post([FromBody] CategoryRequest request)
     {
-        var entity = mapper.Map<Category>(request);
-        repository.Insert(entity);
-        repository.Complete();
+        var entity = mapper.Map<Category>(request); 
+        context.Set<Category>().Add(entity);
+        context.SaveChanges();
 
         var mapped = mapper.Map<Category, CategoryResponse>(entity);
         return mapped;
@@ -58,16 +52,17 @@ public class CategoryController : ControllerBase
     {
         request.Id = id;
         var entity = mapper.Map<Category>(request);
-        repository.Update(entity);
-        repository.Complete();
+        context.Set<Category>().Update(entity);
+        context.SaveChanges();
     }
 
 
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
-        repository.DeleteById(id);
-        repository.Complete();
+        var row = context.Set<Category>().Where(x => x.Id == id).FirstOrDefault();
+        context.Set<Category>().Remove(row);
+        context.SaveChanges();
     }
 
 }
