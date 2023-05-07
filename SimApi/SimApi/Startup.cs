@@ -20,6 +20,8 @@ public class Startup
         services.AddCustomSwaggerExtension();
         services.AddDbContextExtension(Configuration);
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddMapperExtension();
+
     }
 
 

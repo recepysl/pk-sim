@@ -33,6 +33,9 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
 
     public void Insert(Entity entity)
     {
+        entity.GetType().GetProperty("CreatedAt").SetValue(entity, DateTime.UtcNow);
+        entity.GetType().GetProperty("CreatedBy").SetValue(entity,"sim@sim.com");
+
         dbContext.Set<Entity>().Add(entity);
     }
 
