@@ -23,7 +23,7 @@ public class Product1Controller : ControllerBase
     [HttpGet]
     public List<ProductResponse> GetAll()
     {
-        var list = unitOfWork.ProductRepository.GetAll();
+        var list = unitOfWork.GetRepository<Product>().GetAll();
         var mapped = mapper.Map<List<ProductResponse>>(list);
         return mapped;
     }
@@ -31,7 +31,7 @@ public class Product1Controller : ControllerBase
     [HttpGet("{id}")]
     public ProductResponse GetById(int id)
     {
-        var row = unitOfWork.ProductRepository.GetById(id);
+        var row = unitOfWork.GetRepository<Product>().GetById(id);
         var mapped = mapper.Map<ProductResponse>(row);
         return mapped;
     }
@@ -40,7 +40,7 @@ public class Product1Controller : ControllerBase
     public void Post([FromBody] ProductRequest request)
     {
         var entity = mapper.Map<Product>(request);
-        unitOfWork.ProductRepository.Insert(entity);
+        unitOfWork.GetRepository<Product>().Insert(entity);
         unitOfWork.CompleteWithTransaction();
     }
 
@@ -49,7 +49,7 @@ public class Product1Controller : ControllerBase
     {
         request.Id = id;
         var entity = mapper.Map<Product>(request);
-        unitOfWork.ProductRepository.Update(entity);
+        unitOfWork.GetRepository<Product>().Update(entity);
         unitOfWork.Complete();
     }
 
@@ -57,7 +57,7 @@ public class Product1Controller : ControllerBase
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
-        unitOfWork.ProductRepository.DeleteById(id);
+        unitOfWork.GetRepository<Product>().DeleteById(id);
         unitOfWork.Complete();
     }
 

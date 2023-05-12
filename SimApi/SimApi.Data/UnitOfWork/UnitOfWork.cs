@@ -6,8 +6,8 @@ namespace SimApi.Data.Uow;
 
 public class UnitOfWork : IUnitOfWork
 {
-    public IGenericRepository<Category> CategoryRepository { get; private set; }
-    public IGenericRepository<Product> ProductRepository { get; private set; }
+    //public IGenericRepository<Category> CategoryRepository { get; private set; }
+    //public IGenericRepository<Product> ProductRepository { get; private set; }
 
     private readonly SimDbContext dbContext;
     private bool disposed;
@@ -17,12 +17,16 @@ public class UnitOfWork : IUnitOfWork
         this.dbContext = dbContext;
 
 
-        CategoryRepository = new GenericRepository<Category>(dbContext);
-        ProductRepository = new GenericRepository<Product>(dbContext);
+        //CategoryRepository = new GenericRepository<Category>(dbContext);
+        //ProductRepository = new GenericRepository<Product>(dbContext);
     }
     public void Complete()
     {
         dbContext.SaveChanges();
+    }
+    public IGenericRepository<Entity> GetRepository<Entity>() where Entity : class
+    {
+        return new GenericRepository<Entity>(dbContext);
     }
 
     public void CompleteWithTransaction()
@@ -31,14 +35,14 @@ public class UnitOfWork : IUnitOfWork
         {
             try
             {
-                dbContext.SaveChanges();               
+                dbContext.SaveChanges();
                 dbDcontextTransaction.Commit();
             }
             catch (Exception ex)
             {
                 // logging
                 dbDcontextTransaction.Rollback();
-            }         
+            }
         }
     }
 
