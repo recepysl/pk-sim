@@ -1,4 +1,5 @@
 ﻿using SimApi.Data.Context;
+using System.Linq.Expressions;
 
 namespace SimApi.Data.Repository;
 
@@ -45,7 +46,10 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
         dbContext.Set<Entity>().Update(entity);
     }
 
-
+    public IEnumerable<Entity> Where(Expression<Func<Entity, bool>> expression)
+    {
+        return dbContext.Set<Entity>().Where(expression).AsQueryable();
+    }
 
     public void Complete()
     {
@@ -87,4 +91,6 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
     {
         Clean(true);
     }
+
+
 }

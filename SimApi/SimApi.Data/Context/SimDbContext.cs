@@ -14,6 +14,7 @@ public class SimDbContext : DbContext
     public DbSet<Product> Product { get; set; }
     public DbSet<Category> Category { get; set; }
     public DbSet<User> User { get; set; }
+    public DbSet<UserLog> UserLog { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,6 +22,7 @@ public class SimDbContext : DbContext
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new CategoryConfiguration());
         modelBuilder.ApplyConfiguration(new ProductConfiguration());
+        modelBuilder.ApplyConfiguration(new UserLogConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

@@ -1,8 +1,9 @@
-﻿using SimApi.Schema;
+﻿using SimApi.Base;
+using SimApi.Schema;
 
-namespace SimApi.Operation.Token;
+namespace SimApi.Operation;
 
 public interface ITokenService
 {
-    TokenResponse GetToken(TokenRequest request);
+    BaseResponse<TokenResponse> GetToken(TokenRequest request);
 }

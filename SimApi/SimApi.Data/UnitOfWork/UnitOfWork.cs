@@ -8,6 +8,9 @@ public class UnitOfWork : IUnitOfWork
 {
     public IGenericRepository<Category> CategoryRepository { get; private set; }
     public IGenericRepository<Product> ProductRepository { get; private set; }
+    public IGenericRepository<User> UserRepository { get; private set; }
+    public IGenericRepository<UserLog> UserLogRepository { get; private set; }
+
 
     private readonly SimDbContext dbContext;
     private bool disposed;
@@ -16,9 +19,10 @@ public class UnitOfWork : IUnitOfWork
     {
         this.dbContext = dbContext;
 
-
         CategoryRepository = new GenericRepository<Category>(dbContext);
         ProductRepository = new GenericRepository<Product>(dbContext);
+        UserRepository = new GenericRepository<User>(dbContext);
+        UserLogRepository = new GenericRepository<UserLog>(dbContext);
     }
     public void Complete()
     {

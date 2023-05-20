@@ -26,6 +26,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\SimApi.Data\SimApi.Data.csproj" />
+		<ProjectReference Include="..\SimApi.Operation\SimApi.Operation.csproj" />
 		<ProjectReference Include="..\SimApi.Schema\SimApi.Schema.csproj" />
 	</ItemGroup>
 

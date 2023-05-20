@@ -24,4 +24,10 @@
 		<ProjectReference Include="..\SimApi.Base\SimApi.Base.csproj" />
 	</ItemGroup>
 
+	
+
+	<ItemGroup>
+	  <Folder Include="Migrations\" />
+	</ItemGroup>
+
 </Project>

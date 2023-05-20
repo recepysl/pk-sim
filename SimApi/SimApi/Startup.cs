@@ -1,4 +1,5 @@
-﻿using SimApi.Data.Uow;
+﻿using SimApi.Base;
+using SimApi.Data.Uow;
 using SimApi.Service.RestExtension;
 
 namespace SimApi.Service;
@@ -11,17 +12,22 @@ public class Startup
     }
 
     public IConfiguration Configuration { get; }
-
+    public static JwtConfig JwtConfig { get; private set; }
 
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
+
+        JwtConfig = Configuration.GetSection("JwtConfig").Get<JwtConfig>();
+        services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
 
         services.AddCustomSwaggerExtension();
         services.AddDbContextExtension(Configuration);
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddMapperExtension();
         services.AddRepositoryExtension();
+        services.AddServiceExtension();
+        services.AddJwtExtension();
 
     }
 

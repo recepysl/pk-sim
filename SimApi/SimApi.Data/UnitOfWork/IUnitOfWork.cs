@@ -7,6 +7,8 @@ public interface IUnitOfWork : IDisposable
 {
     IGenericRepository<Category> CategoryRepository { get; }
     IGenericRepository<Product> ProductRepository { get; }
+    IGenericRepository<User> UserRepository { get; }
+    IGenericRepository<UserLog> UserLogRepository { get; }
 
     void Complete();
     void CompleteWithTransaction();
