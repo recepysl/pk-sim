@@ -23,15 +23,15 @@ public class TokenService : ITokenService
         this.jwtConfig = jwtConfig.CurrentValue;
     }
 
-    public BaseResponse<TokenResponse> GetToken(TokenRequest request)
+    public ApiResponse<TokenResponse> GetToken(TokenRequest request)
     {
         if (request is null)
         {
-            return new BaseResponse<TokenResponse>("Request was null");
+            return new ApiResponse<TokenResponse>("Request was null");
         }
         if (string.IsNullOrEmpty(request.UserName) || string.IsNullOrEmpty(request.Password))
         {
-            return new BaseResponse<TokenResponse>("Request props was null");
+            return new ApiResponse<TokenResponse>("Request props was null");
         }
 
         request.UserName = request.UserName.Trim().ToLower();
@@ -39,24 +39,24 @@ public class TokenService : ITokenService
         if (user is null)
         {
             Log(request.UserName, LogType.InValidUserName);
-            return new BaseResponse<TokenResponse>("Invalid user informations");
+            return new ApiResponse<TokenResponse>("Invalid user informations");
         }
 
         if (user.Status != 1 )
         {
             Log(request.UserName, LogType.InValidUserStatus);
-            return new BaseResponse<TokenResponse>("Invalid user status");
+            return new ApiResponse<TokenResponse>("Invalid user status");
         }
         if (user.PasswordRetryCount > 3)
         {
             Log(request.UserName, LogType.PasswordRetryCountExceded);
-            return new BaseResponse<TokenResponse>("Password retry count exceded");
+            return new ApiResponse<TokenResponse>("Password retry count exceded");
         }
 
         if (user.Password.ToLower() != CreateMD5(request.Password))
         {
             Log(request.UserName, LogType.WrongPassword);
-            return new BaseResponse<TokenResponse>("Invalid user informations");
+            return new ApiResponse<TokenResponse>("Invalid user informations");
         }
 
         user.LastActivity = DateTime.UtcNow;
@@ -71,7 +71,7 @@ public class TokenService : ITokenService
         response.AccessToken = Token(user);
         response.ExpireTime = DateTime.Now.AddMinutes(jwtConfig.AccessTokenExpiration);
 
-        return new BaseResponse<TokenResponse>(response);
+        return new ApiResponse<TokenResponse>(response);
     }
 
     private string Token(User user)

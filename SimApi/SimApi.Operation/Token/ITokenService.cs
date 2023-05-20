@@ -5,5 +5,5 @@ namespace SimApi.Operation;
 
 public interface ITokenService
 {
-    BaseResponse<TokenResponse> GetToken(TokenRequest request);
+    ApiResponse<TokenResponse> GetToken(TokenRequest request);
 }

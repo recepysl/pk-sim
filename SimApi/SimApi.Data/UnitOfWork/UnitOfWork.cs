@@ -24,6 +24,11 @@ public class UnitOfWork : IUnitOfWork
         UserRepository = new GenericRepository<User>(dbContext);
         UserLogRepository = new GenericRepository<UserLog>(dbContext);
     }
+
+    public IGenericRepository<Entity> Repository<Entity>() where Entity : class
+    {
+        return new GenericRepository<Entity>(dbContext);
+    }
     public void Complete()
     {
         dbContext.SaveChanges();

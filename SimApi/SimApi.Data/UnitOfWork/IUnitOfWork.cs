@@ -10,6 +10,8 @@ public interface IUnitOfWork : IDisposable
     IGenericRepository<User> UserRepository { get; }
     IGenericRepository<UserLog> UserLogRepository { get; }
 
+    IGenericRepository<Entity> Repository<Entity>() where Entity : class;
+
     void Complete();
     void CompleteWithTransaction();
 }

@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SimApi.Data.Domain;
-using SimApi.Data.Repository;
+using SimApi.Base;
+using SimApi.Operation;
 using SimApi.Schema;
 
 namespace SimApi.Service.Controllers;
@@ -10,55 +10,50 @@ namespace SimApi.Service.Controllers;
 [ApiController]
 public class UserController : ControllerBase
 {
-    private readonly IUserRepository repository;
-    private IMapper mapper;
-    public UserController(IMapper mapper, IUserRepository repository)
+    private readonly IUserService service;
+    public UserController(IUserService service)
     {
-        this.repository = repository;
-        this.mapper = mapper;
+        this.service = service;
     }
 
 
     [HttpGet]
-    public List<UserResponse> GetAll()
+    [Authorize]
+    public ApiResponse<List<UserResponse>> GetAll()
     {
-        var list = repository.GetAll();
-        var mapped = mapper.Map<List<UserResponse>>(list);
-        return mapped;
+        return service.GetAll();
     }
 
     [HttpGet("{id}")]
-    public UserResponse GetById(int id)
+    [Authorize]
+    public ApiResponse<UserResponse> GetById(int id)
     {
-        var row = repository.GetById(id);
-        var mapped = mapper.Map<UserResponse>(row);
-        return mapped;
+        return service.GetById(id);
     }
 
     [HttpPost]
-    public void Post([FromBody] UserRequest request)
+    [Authorize]
+    public ApiResponse Post([FromBody] UserRequest request)
     {
-        request.UserName = request.UserName.Trim().ToLower();
-        var entity = mapper.Map<User>(request);
-        repository.Insert(entity);
-        repository.Complete();
+        var response = service.Insert(request);
+        return response;       
     }
 
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] UserResponse request)
+    [Authorize]
+    public ApiResponse Put(int id, [FromBody] UserRequest request)
     {
-        request.Id = id;
-        var entity = mapper.Map<User>(request);
-        repository.Update(entity);
-        repository.Complete();
+        var response = service.Update(id,request);
+        return response;
     }
 
 
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    [Authorize]
+    public ApiResponse Delete(int id)
     {
-        repository.DeleteById(id);
-        repository.Complete();
+        var response = service.Delete(id);
+        return response; ;
     }
 
 }

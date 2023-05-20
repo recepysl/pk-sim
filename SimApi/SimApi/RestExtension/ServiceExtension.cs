@@ -8,5 +8,6 @@ public static class ServiceExtension
     {
         services.AddScoped<IUserLogService, UserLogService>();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IUserService, UserService>();
     }
 }

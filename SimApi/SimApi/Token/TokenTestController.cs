@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using SimApi.Base;
-using SimApi.Operation;
 using System.Security.Claims;
 
 namespace SimApi.Service;
@@ -10,6 +9,7 @@ namespace SimApi.Service;
 
 [Route("simapi/v1/[controller]")]
 [ApiController]
+[NonController]
 public class TokenTestController : ControllerBase
 {
     public TokenTestController()

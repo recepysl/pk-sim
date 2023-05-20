@@ -1,6 +1,8 @@
-﻿namespace SimApi.Schema;
+﻿using SimApi.Base;
 
-public class TokenResponse
+namespace SimApi.Schema;
+
+public class TokenResponse : BaseResponse
 {
     public DateTime ExpireTime { get; set; }
     public string AccessToken { get; set; }
