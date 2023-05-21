@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SimApi.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SimApi.Data.Domain;
+namespace SimApi.Data;
 
 
 [Table("Category", Schema = "dbo")]

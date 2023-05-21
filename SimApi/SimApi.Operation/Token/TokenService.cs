@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SimApi.Base;
-using SimApi.Data.Domain;
+using SimApi.Data;
 using SimApi.Data.Uow;
 using SimApi.Schema;
 using System.IdentityModel.Tokens.Jwt;

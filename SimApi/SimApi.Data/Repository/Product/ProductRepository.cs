@@ -1,5 +1,5 @@
 ﻿using SimApi.Data.Context;
-using SimApi.Data.Domain;
+using SimApi.Data;
 
 namespace SimApi.Data.Repository;
 

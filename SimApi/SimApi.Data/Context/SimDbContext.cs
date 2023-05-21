@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SimApi.Data.Domain;
+using SimApi.Data;
 
 namespace SimApi.Data.Context;
 
@@ -15,6 +15,9 @@ public class SimDbContext : DbContext
     public DbSet<Category> Category { get; set; }
     public DbSet<User> User { get; set; }
     public DbSet<UserLog> UserLog { get; set; }
+    public DbSet<Account> Account { get; set; }
+    public DbSet<Customer> Customer { get; set; }
+    public DbSet<Transaction> Transaction { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,6 +26,9 @@ public class SimDbContext : DbContext
         modelBuilder.ApplyConfiguration(new CategoryConfiguration());
         modelBuilder.ApplyConfiguration(new ProductConfiguration());
         modelBuilder.ApplyConfiguration(new UserLogConfiguration());
+        modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+        modelBuilder.ApplyConfiguration(new AccountConfiguration());
+        modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

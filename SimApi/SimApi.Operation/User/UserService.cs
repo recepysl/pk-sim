@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using SimApi.Base;
-using SimApi.Data.Domain;
+using SimApi.Data;
 using SimApi.Data.Uow;
 using SimApi.Schema;
 
@@ -9,7 +9,7 @@ namespace SimApi.Operation;
 public class UserService : BaseService<User, UserRequest, UserResponse>, IUserService
 {
     private readonly IUnitOfWork unitOfWork;
-    private readonly IMapper mapper;    
+    private readonly IMapper mapper;
     public UserService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
     {
         this.unitOfWork = unitOfWork;
@@ -19,7 +19,9 @@ public class UserService : BaseService<User, UserRequest, UserResponse>, IUserSe
 
     public override ApiResponse Insert(UserRequest request)
     {
-        var exist= unitOfWork.Repository<User>().Where(x=> x.UserName.Equals(request.UserName)).ToList();
+        var exist = unitOfWork.Repository<User>().
+            Where(x => x.UserName.Equals(request.UserName)).ToList();
+
         if (exist.Any())
         {
             return new ApiResponse("Username already in use.");
@@ -57,7 +59,7 @@ public class UserService : BaseService<User, UserRequest, UserResponse>, IUserSe
             return new ApiResponse("User cannot be updated.");
         }
 
-        return base.Update(Id,request);
+        return base.Update(Id, request);
     }
 
     private string CreateMD5(string input)

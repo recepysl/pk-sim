@@ -24,7 +24,7 @@ namespace SimApi.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("SimApi.Data.Domain.Category", b =>
+            modelBuilder.Entity("SimApi.Data.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,7 +62,7 @@ namespace SimApi.Data.Migrations
                     b.ToTable("Category", "dbo");
                 });
 
-            modelBuilder.Entity("SimApi.Data.Domain.Product", b =>
+            modelBuilder.Entity("SimApi.Data.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -110,7 +110,7 @@ namespace SimApi.Data.Migrations
                     b.ToTable("Product", "dbo");
                 });
 
-            modelBuilder.Entity("SimApi.Data.Domain.User", b =>
+            modelBuilder.Entity("SimApi.Data.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -179,7 +179,7 @@ namespace SimApi.Data.Migrations
                     b.ToTable("User", "dbo");
                 });
 
-            modelBuilder.Entity("SimApi.Data.Domain.UserLog", b =>
+            modelBuilder.Entity("SimApi.Data.UserLog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

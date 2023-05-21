@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using SimApi.Data.Domain;
+using SimApi.Data;
 using SimApi.Data.Uow;
 using SimApi.Schema;
 

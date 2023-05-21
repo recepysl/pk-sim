@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SimApi.Data.Domain;
+using SimApi.Data;
 
 namespace SimApi.Schema;
 
@@ -15,6 +15,15 @@ public class MapperProfile : Profile
 
         CreateMap<User, UserResponse>();
         CreateMap<UserRequest, User>();
+
+        CreateMap<Customer, CustomerResponse>();
+        CreateMap<CustomerRequest, Customer>();
+
+        CreateMap<Account, AccountResponse>();
+        CreateMap<AccountRequest, Account>();
+
+        CreateMap<Transaction, TransactionResponse>();
+        CreateMap<TransactionRequest, Transaction>();
     }
 
 

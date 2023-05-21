@@ -1,4 +1,4 @@
-﻿using SimApi.Data.Domain;
+﻿using SimApi.Data;
 
 namespace SimApi.Data.Repository;
 
