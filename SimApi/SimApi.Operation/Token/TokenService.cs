@@ -35,14 +35,30 @@ public class TokenService : ITokenService
         }
 
         request.UserName = request.UserName.Trim().ToLower();
+        request.Password = request.Password.Trim();
+        
         var user = unitOfWork.UserRepository.Where(x => x.UserName.Equals(request.UserName)).FirstOrDefault();
         if (user is null)
         {
             Log(request.UserName, LogType.InValidUserName);
             return new ApiResponse<TokenResponse>("Invalid user informations");
         }
+        if (user.Password.ToLower() != CreateMD5(request.Password))
+        {
+            user.PasswordRetryCount++;
+            user.LastActivity = DateTime.UtcNow;
 
-        if (user.Status != 1 )
+            if (user.PasswordRetryCount > 3)
+                user.Status = 2;
+
+            unitOfWork.UserRepository.Update(user);
+            unitOfWork.Complete();
+
+            Log(request.UserName, LogType.WrongPassword);
+            return new ApiResponse<TokenResponse>("Invalid user informations");
+        }
+
+        if (user.Status != 1)
         {
             Log(request.UserName, LogType.InValidUserStatus);
             return new ApiResponse<TokenResponse>("Invalid user status");
@@ -51,12 +67,6 @@ public class TokenService : ITokenService
         {
             Log(request.UserName, LogType.PasswordRetryCountExceded);
             return new ApiResponse<TokenResponse>("Password retry count exceded");
-        }
-
-        if (user.Password.ToLower() != CreateMD5(request.Password))
-        {
-            Log(request.UserName, LogType.WrongPassword);
-            return new ApiResponse<TokenResponse>("Invalid user informations");
         }
 
         user.LastActivity = DateTime.UtcNow;

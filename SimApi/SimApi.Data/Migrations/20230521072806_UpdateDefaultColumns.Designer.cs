@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SimApi.Data.Context;
@@ -11,9 +12,10 @@ using SimApi.Data.Context;
 namespace SimApi.Data.Migrations
 {
     [DbContext(typeof(SimDbContext))]
-    partial class SimDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230521072806_UpdateDefaultColumns")]
+    partial class UpdateDefaultColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
