@@ -16,7 +16,6 @@ public class UserLogService : IUserLogService
     {
         UserLog log = new(); 
         log.LogType = logType;
-        log.CreatedAt = DateTime.UtcNow;
         log.TransactionDate = DateTime.UtcNow;
         log.UserName = username;
 

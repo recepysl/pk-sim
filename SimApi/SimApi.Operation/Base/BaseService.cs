@@ -73,7 +73,6 @@ public class BaseService<TEntity, TRequest, TResponse> : IBaseService<TEntity, T
         try
         {
             var entity = mapper.Map<TRequest, TEntity>(request);
-            entity.GetType().GetProperty("CreatedAt").SetValue(entity, DateTime.UtcNow);
             unitOfWork.Repository<TEntity>().Insert(entity);
             unitOfWork.Complete();
             return new ApiResponse();
@@ -97,7 +96,6 @@ public class BaseService<TEntity, TRequest, TResponse> : IBaseService<TEntity, T
             }
 
             entity.GetType().GetProperty("Id").SetValue(entity, Id);
-            entity.GetType().GetProperty("UpdatedAt").SetValue(entity, DateTime.UtcNow);
             unitOfWork.Repository<TEntity>().Update(entity);
             unitOfWork.Complete();
             return new ApiResponse();

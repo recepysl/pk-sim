@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SimApi.Data;
+using SimApi.Base;
 
 namespace SimApi.Data.Context;
 
@@ -31,5 +31,36 @@ public class SimDbContext : DbContext
         modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 
         base.OnModelCreating(modelBuilder);
+    }
+
+    public override int SaveChanges()
+    {
+        OnBeforeSaving();
+        return base.SaveChanges();
+    }
+    private void OnBeforeSaving()
+    {
+        var entries = ChangeTracker.Entries();
+
+        foreach (var entry in entries)
+        {
+            if (entry.Entity is BaseModel trackable)
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        trackable.CreatedAt = DateTime.UtcNow;
+                        trackable.CreatedBy = "sim@sim.com";
+                        break;
+
+                    case EntityState.Modified:
+                        trackable.UpdatedAt = DateTime.UtcNow;
+                        trackable.UpdatedBy = "sim@sim.com";
+                        entry.Property("CreatedAt").IsModified = false;
+                        entry.Property("CreatedBy").IsModified = false;
+                        break;
+                }
+            }
+        }
     }
 }

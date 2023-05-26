@@ -31,7 +31,6 @@ public class UserService : BaseService<User, UserRequest, UserResponse>, IUserSe
         {
             request.Password = CreateMD5(request.Password);
             var entity = mapper.Map<UserRequest, User>(request);
-            entity.CreatedAt = DateTime.UtcNow;
             entity.Status = 1;
             entity.PasswordRetryCount = 0;
             entity.LastActivity = DateTime.UtcNow;
