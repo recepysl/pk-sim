@@ -12,8 +12,8 @@ public class Program
             .Build();
 
         Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(config).CreateLogger();
+        Log.Information("Application is starting...");
 
-        Console.WriteLine("Application is starting...");
         CreateHostBuilder(args).Build().Run();
     }
 
