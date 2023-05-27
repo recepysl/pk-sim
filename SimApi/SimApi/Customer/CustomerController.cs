@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using SimApi.Base;
-using SimApi.Data;
-using SimApi.Data.Context;
+using SimApi.Operation;
 using SimApi.Schema;
-using System.Collections.Generic;
 
 namespace SimApi.Service;
 
@@ -13,61 +9,42 @@ namespace SimApi.Service;
 [ApiController]
 public class CustomerController : ControllerBase
 {
-    private SimDbContext context;
-    private readonly IMapper mapper;
+    private readonly ICustomerService customerService;
 
-    public CustomerController(SimDbContext context, IMapper mapper)
+    public CustomerController(ICustomerService customerService)
     {
-        this.mapper = mapper;
-        this.context = context;
+        this.customerService = customerService;
     }
 
     [HttpGet]
     public ApiResponse<List<CustomerResponse>> GetAll()
     {
-        var list = context.Set<Customer>()
-            .Where(x => x.IsValid)
-            .Include(x => x.Accounts).ThenInclude(x => x.Transactions)
-            .ToList();
-        var mapped = mapper.Map<List<Customer>, List<CustomerResponse>>(list);
-        return new ApiResponse<List<CustomerResponse>>(mapped);
+        var customerList = customerService.GetAll();
+        return customerList;
     }
 
     [HttpGet("{id}")]
     public ApiResponse<CustomerResponse> GetById(int id)
     {
-        var entity = context.Set<Customer>().Where(x => x.Id == id)
-             .Include(x => x.Accounts).ThenInclude(x => x.Transactions)
-             .FirstOrDefault();
-        var mapped = mapper.Map<Customer, CustomerResponse>(entity);
-        return new ApiResponse<CustomerResponse>(mapped);
+        var customer = customerService.GetById(id);
+        return customer;
     }
 
     [HttpPost]
     public ApiResponse Post([FromBody] CustomerRequest request)
     {
-        var mapped = mapper.Map<CustomerRequest, Customer>(request);
-        var entity = context.Set<Customer>().Add(mapped);
-        context.SaveChanges();
-        return new ApiResponse();
+       return customerService.Insert(request);
     }
 
     [HttpPut("{id}")]
     public ApiResponse Put(int id, [FromBody] CustomerRequest request)
     {
-        var mapped = mapper.Map<CustomerRequest, Customer>(request);
-        mapped.Id = id;
-        var entity = context.Set<Customer>().Update(mapped);
-        context.SaveChanges();
-        return new ApiResponse();
+        return customerService.Update(id,request);
     }
 
     [HttpDelete("{id}")]
     public ApiResponse Delete(int id)
     {
-        var entity = context.Set<Customer>().Find(id);
-        context.Set<Customer>().Remove(entity);
-        context.SaveChanges();
-        return new ApiResponse();
+        return customerService.Delete(id);
     }
 }

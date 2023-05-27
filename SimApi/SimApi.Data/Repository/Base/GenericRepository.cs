@@ -1,9 +1,11 @@
-﻿using SimApi.Data.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using SimApi.Base;
+using SimApi.Data.Context;
 using System.Linq.Expressions;
 
 namespace SimApi.Data.Repository;
 
-public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity : class
+public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity : BaseModel
 {
     protected readonly SimDbContext dbContext;
     private bool disposed;
@@ -25,7 +27,26 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
 
     public List<Entity> GetAll()
     {
-        return dbContext.Set<Entity>().ToList();
+        return dbContext.Set<Entity>().AsQueryable().ToList();
+    }
+    public List<Entity> GetAllWithInclude(params string[] includes)
+    {
+        var query = dbContext.Set<Entity>().AsQueryable();
+        query = includes.Aggregate(query, (current, inc) => current.Include(inc));      
+        return  query.ToList();
+    }
+    public Entity GetByIdWithInclude(int id, params string[] includes)
+    {
+        var query = dbContext.Set<Entity>().AsQueryable();
+        query = includes.Aggregate(query, (current, inc) => current.Include(inc));
+        return query.FirstOrDefault(x => x.Id == id);
+    }
+    public IEnumerable<Entity> WhereWithInclude(Expression<Func<Entity, bool>> expression, params string[] includes)
+    {
+        var query = dbContext.Set<Entity>().AsQueryable();
+        query.Where(expression);
+        query = includes.Aggregate(query, (current, inc) => current.Include(inc));
+        return query.ToList();
     }
 
     public Entity GetById(int id)
@@ -35,8 +56,8 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
 
     public void Insert(Entity entity)
     {
-        entity.GetType().GetProperty("CreatedAt").SetValue(entity, DateTime.UtcNow);
-        entity.GetType().GetProperty("CreatedBy").SetValue(entity,"sim@sim.com");
+        entity.CreatedAt = DateTime.UtcNow;
+        entity.CreatedBy = "sim@sim.com";
 
         dbContext.Set<Entity>().Add(entity);
     }
@@ -92,5 +113,5 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
         Clean(true);
     }
 
-
+   
 }

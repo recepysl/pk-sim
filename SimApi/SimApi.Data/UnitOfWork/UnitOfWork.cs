@@ -1,5 +1,5 @@
-﻿using SimApi.Data.Context;
-using SimApi.Data;
+﻿using SimApi.Base;
+using SimApi.Data.Context;
 using SimApi.Data.Repository;
 
 namespace SimApi.Data.Uow;
@@ -25,7 +25,7 @@ public class UnitOfWork : IUnitOfWork
         UserLogRepository = new GenericRepository<UserLog>(dbContext);
     }
 
-    public IGenericRepository<Entity> Repository<Entity>() where Entity : class
+    public IGenericRepository<Entity> Repository<Entity>() where Entity : BaseModel
     {
         return new GenericRepository<Entity>(dbContext);
     }
