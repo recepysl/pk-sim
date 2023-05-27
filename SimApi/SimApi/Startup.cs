@@ -1,6 +1,9 @@
-﻿using SimApi.Base;
+﻿using Microsoft.AspNetCore.Diagnostics;
+using Serilog;
+using SimApi.Base;
 using SimApi.Data.Uow;
 using SimApi.Service.RestExtension;
+using System.Net;
 
 namespace SimApi.Service;
 
@@ -46,6 +49,26 @@ public class Startup
             c.DefaultModelsExpandDepth(-1);
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sim Company");
             c.DocumentTitle = "SimApi Company";
+        });
+
+
+        app.UseExceptionHandler(appError =>
+        {
+            appError.Run(async context =>
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                context.Response.ContentType = "application/json";
+                var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+                if (contextFeature != null)
+                {
+                    Log.Fatal(
+                        $"MethodName={contextFeature.Endpoint} || " +
+                        $"Path={contextFeature.Path} || " +
+                        $"Exception={contextFeature.Error}" 
+                        );
+                    await context.Response.WriteAsync(new ApiResponse("Internal Server Error.").ToString());
+                }
+            });
         });
 
         app.UseHttpsRedirection();

@@ -27,7 +27,11 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
 
     public List<Entity> GetAll()
     {
-        return dbContext.Set<Entity>().AsQueryable().ToList();
+        return dbContext.Set<Entity>().ToList();
+    }
+    public List<Entity> GetAllAsNoTracking()
+    {
+        return dbContext.Set<Entity>().AsNoTracking().ToList();
     }
     public List<Entity> GetAllWithInclude(params string[] includes)
     {
@@ -52,6 +56,10 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
     public Entity GetById(int id)
     {
         return dbContext.Set<Entity>().Find(id);
+    }  
+    public Entity GetByIdAsNoTracking(int id)
+    {
+        return dbContext.Set<Entity>().AsNoTracking().FirstOrDefault(x=> x.Id == id);
     }
 
     public void Insert(Entity entity)
@@ -70,6 +78,10 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
     public IEnumerable<Entity> Where(Expression<Func<Entity, bool>> expression)
     {
         return dbContext.Set<Entity>().Where(expression).AsQueryable();
+    }
+    public IEnumerable<Entity> WhereAsNoTracking(Expression<Func<Entity, bool>> expression)
+    {
+        return dbContext.Set<Entity>().AsNoTracking().Where(expression).AsQueryable();
     }
 
     public void Complete()

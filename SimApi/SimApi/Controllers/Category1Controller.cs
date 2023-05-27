@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using SimApi.Data.Context;
 using SimApi.Data;
+using SimApi.Data.Context;
 using SimApi.Schema;
 
 namespace SimApi.Service.Controllers;

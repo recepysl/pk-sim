@@ -1,7 +1,14 @@
-﻿namespace SimApi.Base;
+﻿using System.Text.Json;
+
+namespace SimApi.Base;
 
 public partial class ApiResponse
 {
+    public override string ToString()
+    {
+        return JsonSerializer.Serialize(this);
+    }
+
     public ApiResponse(string message = null)
     {
         if (string.IsNullOrWhiteSpace(message))
