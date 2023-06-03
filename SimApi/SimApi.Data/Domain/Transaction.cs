@@ -16,7 +16,8 @@ public class Transaction : BaseModel
     public byte Direction { get; set; }
     public DateTime TransactionDate { get; set; }
     public string Description { get; set; }
-    public long ReferenceNumber { get; set; }
+    public string ReferenceNumber { get; set; }
+    public string TransactionCode { get; set; }
 }
 
 public class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
@@ -34,7 +35,8 @@ public class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
         builder.Property(x => x.Description).IsRequired(true).HasMaxLength(30);
         builder.Property(x => x.Direction).IsRequired(true);
         builder.Property(x => x.TransactionDate).IsRequired(true);
-        builder.Property(x => x.ReferenceNumber).IsRequired(true);
+        builder.Property(x => x.ReferenceNumber).HasMaxLength(50).IsRequired(true);
+        builder.Property(x => x.TransactionCode).HasMaxLength(50).IsRequired(true);
 
         builder.HasIndex(x => x.ReferenceNumber);
         builder.HasIndex(x => x.AccountId);

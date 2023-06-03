@@ -11,7 +11,7 @@ public static class ServiceExtension
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ICustomerService, CustomerService>();
-
+        services.AddScoped<IAccountService, AccountService>();
 
         services.AddScoped<ScopedService>();
         services.AddTransient<TransientService>();

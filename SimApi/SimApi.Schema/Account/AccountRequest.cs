@@ -9,6 +9,4 @@ public class AccountRequest : BaseRequest
     public string Name { get; set; }
     public DateTime OpenDate { get; set; }
     public decimal Balance { get; set; }
-
-    public List<TransactionRequest> Transactions { get; set; } = new List<TransactionRequest>();
 }

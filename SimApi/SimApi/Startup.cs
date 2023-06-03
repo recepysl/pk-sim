@@ -2,7 +2,6 @@
 using Serilog;
 using SimApi.Base;
 using SimApi.Data.Uow;
-using SimApi.Service.CustomService;
 using SimApi.Service.RestExtension;
 using System.Net;
 
@@ -52,62 +51,9 @@ public class Startup
             c.DocumentTitle = "SimApi Company";
         });
 
-
-        app.UseExceptionHandler(appError =>
-        {
-            appError.Run(async context =>
-            {
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                context.Response.ContentType = "application/json";
-                var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                if (contextFeature != null)
-                {
-                    Log.Fatal(
-                        $"MethodName={contextFeature.Endpoint} || " +
-                        $"Path={contextFeature.Path} || " +
-                        $"Exception={contextFeature.Error}"
-                        );
-                    await context.Response.WriteAsync(new ApiResponse("Internal Server Error.").ToString());
-                }
-            });
-        });
-
-        app.Use((context, next) =>
-        {
-
-            if (!string.IsNullOrEmpty(context.Request.Path) && context.Request.Path.Value.Contains("favicon"))
-            {
-                return next();
-            }
-            var singletenService = context.RequestServices.GetRequiredService<SingletonService>();
-            var scopedService = context.RequestServices.GetRequiredService<ScopedService>();
-            var transientService = context.RequestServices.GetRequiredService<TransientService>();
-
-            singletenService.Counter++;
-            scopedService.Counter++;
-            transientService.Counter++;
-
-            return next();
-        });
-
-        app.Run(async context =>
-        {
-            var singletenService = context.RequestServices.GetRequiredService<SingletonService>();
-            var scopedService = context.RequestServices.GetRequiredService<ScopedService>();
-            var transientService = context.RequestServices.GetRequiredService<TransientService>();
-
-            if (!string.IsNullOrEmpty(context.Request.Path) && !context.Request.Path.Value.Contains("favicon"))
-            {
-                singletenService.Counter++;
-                scopedService.Counter++;
-                transientService.Counter++;
-            }      
-
-            await context.Response.WriteAsync($"SingletonService: {singletenService.Counter}\n");
-            await context.Response.WriteAsync($"TransientService: {transientService.Counter}\n");
-            await context.Response.WriteAsync($"ScopedService: {scopedService.Counter}\n");
-        });
-
+        //DI
+        app.AddExceptionHandler();
+        app.AddDIExtension();
 
         app.UseHttpsRedirection();
 
