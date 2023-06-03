@@ -9,24 +9,24 @@ public static class DIExtension
 {
     public static void AddExceptionHandler(this IApplicationBuilder app)
     {
-        app.UseExceptionHandler(appError =>
-        {
-            appError.Run(async context =>
-            {
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                context.Response.ContentType = "application/json";
-                var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                if (contextFeature != null)
-                {
-                    Log.Fatal(
-                        $"MethodName={contextFeature.Endpoint} || " +
-                        $"Path={contextFeature.Path} || " +
-                        $"Exception={contextFeature.Error}"
-                        );
-                    await context.Response.WriteAsync(new ApiResponse("Internal Server Error.").ToString());
-                }
-            });
-        });
+        //app.UseExceptionHandler(appError =>
+        //{
+        //    appError.Run(async context =>
+        //    {
+        //        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+        //        context.Response.ContentType = "application/json";
+        //        var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+        //        if (contextFeature != null)
+        //        {
+        //            Log.Fatal(
+        //                $"MethodName={contextFeature.Endpoint} || " +
+        //                $"Path={contextFeature.Path} || " +
+        //                $"Exception={contextFeature.Error}"
+        //                );
+        //            await context.Response.WriteAsync(new ApiResponse("Internal Server Error.").ToString());
+        //        }
+        //    });
+        //});
     }
 
     public static void AddDIExtension(this IApplicationBuilder app)

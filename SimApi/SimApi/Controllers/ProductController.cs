@@ -14,8 +14,7 @@ public class ProductController : ControllerBase
     private IMapper mapper;
     public ProductController(IMapper mapper, IProductRepository repository)
     {
-        this.repository = repository;
-        this.mapper = mapper;
+   
     }
 
 

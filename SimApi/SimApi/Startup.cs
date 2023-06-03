@@ -2,6 +2,7 @@
 using Serilog;
 using SimApi.Base;
 using SimApi.Data.Uow;
+using SimApi.Service.Middleware;
 using SimApi.Service.RestExtension;
 using System.Net;
 
@@ -54,6 +55,10 @@ public class Startup
         //DI
         app.AddExceptionHandler();
         app.AddDIExtension();
+
+        app.UseMiddleware<HeartBeatMiddleware>();
+        app.UseMiddleware<ErrorHandlerMiddleware>();
+        app.UseMiddleware<RequestLoggingMiddleware>();
 
         app.UseHttpsRedirection();
 
