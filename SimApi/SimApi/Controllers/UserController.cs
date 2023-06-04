@@ -6,6 +6,9 @@ using SimApi.Schema;
 
 namespace SimApi.Service.Controllers;
 
+
+[EnableMiddlewareLogger]
+[ResponseGuid]
 [Route("simapi/v1/[controller]")]
 [ApiController]
 public class UserController : ControllerBase

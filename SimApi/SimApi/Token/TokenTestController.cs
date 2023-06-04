@@ -7,6 +7,8 @@ using System.Security.Claims;
 namespace SimApi.Service;
 
 
+[EnableMiddlewareLogger]
+[ResponseGuid]
 [Route("simapi/v1/[controller]")]
 [ApiController]
 [NonController]

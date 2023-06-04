@@ -5,6 +5,8 @@ using SimApi.Schema;
 
 namespace SimApi.Service;
 
+[EnableMiddlewareLogger]
+[ResponseGuid]
 [Route("simapi/v1/[controller]")]
 [ApiController]
 public class TransactionController : ControllerBase

@@ -9,6 +9,7 @@ namespace SimApi.Service.Controllers;
 [ApiController]
 [EnableMiddlewareLogger]
 [ResponseGuid]
+[NonController]
 public class AttibuteTestController : ControllerBase
 {
 

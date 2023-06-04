@@ -1,11 +1,15 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SimApi.Base;
 using SimApi.Data;
 using SimApi.Data.Repository;
 using SimApi.Schema;
 
 namespace SimApi.Service.Controllers;
 
+
+[EnableMiddlewareLogger]
+[ResponseGuid]
 [Route("simapi/v1/[controller]")]
 [ApiController]
 public class ProductController : ControllerBase
