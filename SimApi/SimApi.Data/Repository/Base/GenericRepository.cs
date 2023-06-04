@@ -7,10 +7,10 @@ namespace SimApi.Data.Repository;
 
 public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity : BaseModel
 {
-    protected readonly SimDbContext dbContext;
+    protected readonly SimEfDbContext dbContext;
     private bool disposed;
 
-    public GenericRepository(SimDbContext dbContext)
+    public GenericRepository(SimEfDbContext dbContext)
     {
         this.dbContext = dbContext;
     }

@@ -11,7 +11,7 @@ using SimApi.Data.Context;
 
 namespace SimApi.Data.Migrations
 {
-    [DbContext(typeof(SimDbContext))]
+    [DbContext(typeof(SimEfDbContext))]
     [Migration("20230520115216_InitialCreate")]
     partial class InitialCreate
     {

@@ -10,7 +10,7 @@ using SimApi.Data.Context;
 
 namespace SimApi.Data.Migrations
 {
-    [DbContext(typeof(SimDbContext))]
+    [DbContext(typeof(SimEfDbContext))]
     partial class SimDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

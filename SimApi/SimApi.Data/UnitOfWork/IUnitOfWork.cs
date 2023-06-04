@@ -9,6 +9,12 @@ public interface IUnitOfWork : IDisposable
     IGenericRepository<Product> ProductRepository { get; }
     IGenericRepository<User> UserRepository { get; }
     IGenericRepository<UserLog> UserLogRepository { get; }
+    IGenericRepository<Account> AccountRepository { get; }
+    IGenericRepository<Transaction> TransactionRepository { get; }
+
+
+    IDapperRepository<Account> DapperAccountRepository { get; }
+    IDapperTransactionRepository DapperTransactionRepository { get; }
 
     IGenericRepository<Entity> Repository<Entity>() where Entity : BaseModel;
 

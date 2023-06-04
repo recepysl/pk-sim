@@ -11,13 +11,13 @@ public static class DbContextExtension
         if (dbType == "SQL")
         {
             var dbConfig = Configuration.GetConnectionString("MsSqlConnection");
-            services.AddDbContext<SimDbContext>(opts =>
+            services.AddDbContext<SimEfDbContext>(opts =>
             opts.UseSqlServer(dbConfig));
         }
         else if (dbType== "PostgreSql")
         {
             var dbConfig = Configuration.GetConnectionString("PostgreSqlConnection");
-            services.AddDbContext<SimDbContext>(opts =>
+            services.AddDbContext<SimEfDbContext>(opts =>
               opts.UseNpgsql(dbConfig));
         }      
 

@@ -5,7 +5,7 @@ namespace SimApi.Data.Repository;
 
 public class UserRepository : GenericRepository<User>, IUserRepository
 {
-    public UserRepository(SimDbContext context) : base(context)
+    public UserRepository(SimEfDbContext context) : base(context)
     {
 
     }

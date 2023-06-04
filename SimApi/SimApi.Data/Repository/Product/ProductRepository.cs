@@ -5,7 +5,7 @@ namespace SimApi.Data.Repository;
 
 public class ProductRepository : GenericRepository<Product>, IProductRepository
 {
-    public ProductRepository(SimDbContext context) : base(context)
+    public ProductRepository(SimEfDbContext context) : base(context)
     {
 
     }

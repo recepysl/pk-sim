@@ -11,9 +11,9 @@ namespace SimApi.Service.Controllers;
 [NonController]
 public class Category1Controller : ControllerBase
 {
-    private SimDbContext context;
+    private SimEfDbContext context;
     private IMapper mapper;
-    public Category1Controller(SimDbContext context, IMapper mapper)
+    public Category1Controller(SimEfDbContext context, IMapper mapper)
     {
         this.context = context;
         this.mapper = mapper;

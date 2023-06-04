@@ -5,7 +5,7 @@ namespace SimApi.Data.Repository;
 
 public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
 {
-    public CategoryRepository(SimDbContext context) : base(context)
+    public CategoryRepository(SimEfDbContext context) : base(context)
     {
 
     }

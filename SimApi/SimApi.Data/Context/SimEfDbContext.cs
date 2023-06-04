@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SimApi.Data;
 
 namespace SimApi.Data.Context;
 
-public class SimDbContext : DbContext
+public class SimEfDbContext : DbContext
 {
-    public SimDbContext(DbContextOptions<SimDbContext> options) : base(options)
+    public SimEfDbContext(DbContextOptions<SimEfDbContext> options) : base(options)
     {
 
     }

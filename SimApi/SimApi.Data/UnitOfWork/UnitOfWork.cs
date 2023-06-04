@@ -10,12 +10,19 @@ public class UnitOfWork : IUnitOfWork
     public IGenericRepository<Product> ProductRepository { get; private set; }
     public IGenericRepository<User> UserRepository { get; private set; }
     public IGenericRepository<UserLog> UserLogRepository { get; private set; }
+    public IGenericRepository<Account> AccountRepository { get; private set; }
+    public IGenericRepository<Transaction> TransactionRepository { get; private set; }
 
 
-    private readonly SimDbContext dbContext;
+    public IDapperRepository<Account> DapperAccountRepository { get; private set; }
+    public IDapperTransactionRepository DapperTransactionRepository { get; private set; }
+
+
+    private readonly SimEfDbContext dbContext;
+    private readonly SimDapperDbContext dapperDbContext;
     private bool disposed;
 
-    public UnitOfWork(SimDbContext dbContext)
+    public UnitOfWork(SimEfDbContext dbContext)
     {
         this.dbContext = dbContext;
 
@@ -23,6 +30,17 @@ public class UnitOfWork : IUnitOfWork
         ProductRepository = new GenericRepository<Product>(dbContext);
         UserRepository = new GenericRepository<User>(dbContext);
         UserLogRepository = new GenericRepository<UserLog>(dbContext);
+        AccountRepository = new GenericRepository<Account>(dbContext);
+        TransactionRepository = new GenericRepository<Transaction>(dbContext);
+
+
+        DapperAccountRepository = new DapperAccountRepository(dapperDbContext);
+        DapperTransactionRepository = new DapperTransactionRepository(dapperDbContext);
+    }
+
+    public IDapperRepository<Entity> DapperRepository<Entity>() where Entity : BaseModel
+    {
+        return new DapperRepository<Entity>(dapperDbContext);
     }
 
     public IGenericRepository<Entity> Repository<Entity>() where Entity : BaseModel

@@ -11,7 +11,7 @@ using SimApi.Data.Context;
 
 namespace SimApi.Data.Migrations
 {
-    [DbContext(typeof(SimDbContext))]
+    [DbContext(typeof(SimEfDbContext))]
     [Migration("20230521105025_Account")]
     partial class Account
     {
