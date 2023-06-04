@@ -37,7 +37,7 @@ public class TokenService : ITokenService
         request.UserName = request.UserName.Trim().ToLower();
         request.Password = request.Password.Trim();
         
-        var user = unitOfWork.UserRepository.Where(x => x.UserName.Equals(request.UserName)).FirstOrDefault();
+        var user = unitOfWork.Repository<User>().Where(x => x.UserName.Equals(request.UserName)).FirstOrDefault();
         if (user is null)
         {
             Log(request.UserName, LogType.InValidUserName);
@@ -51,7 +51,7 @@ public class TokenService : ITokenService
             if (user.PasswordRetryCount > 3)
                 user.Status = 2;
 
-            unitOfWork.UserRepository.Update(user);
+            unitOfWork.Repository<User>().Update(user);
             unitOfWork.Complete();
 
             Log(request.UserName, LogType.WrongPassword);
@@ -73,7 +73,7 @@ public class TokenService : ITokenService
         user.Status = 1;
 
 
-        unitOfWork.UserRepository.Update(user);
+        unitOfWork.Repository<User>().Update(user);
         unitOfWork.Complete();
 
         TokenResponse response = new();

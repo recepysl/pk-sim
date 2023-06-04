@@ -20,7 +20,7 @@ public class UserLogService : IUserLogService
         log.TransactionDate = DateTime.UtcNow;
         log.UserName = username;
 
-        unitOfWork.UserLogRepository.Insert(log);
+        unitOfWork.Repository<UserLog>().Insert(log);
         unitOfWork.Complete();
     }
 }
