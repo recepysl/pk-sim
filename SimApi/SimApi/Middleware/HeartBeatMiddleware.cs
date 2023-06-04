@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using Serilog;
+using System.Text.Json;
 
 namespace SimApi.Service.Middleware;
 
@@ -13,6 +14,7 @@ public class HeartBeatMiddleware
 
     public async Task Invoke(HttpContext context)
     {
+        Log.Information("LogHeartBeatMiddleware.Invoke");
         if (context.Request.Path.StartsWithSegments("/heartbeat"))
         {
             await context.Response.WriteAsync(JsonSerializer.Serialize("Hello from server"));

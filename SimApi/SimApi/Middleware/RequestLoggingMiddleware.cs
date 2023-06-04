@@ -1,4 +1,5 @@
 ﻿using Microsoft.IO;
+using Serilog;
 using SimApi.Base;
 
 namespace SimApi.Service.Middleware;
@@ -18,6 +19,8 @@ public class RequestLoggingMiddleware
 
     public async Task Invoke(HttpContext context)
     {
+        Log.Information("LogRequestLoggingMiddleware.Invoke");
+
         var model = new RequestProfilerModel
         {
             RequestTime = new DateTimeOffset(),

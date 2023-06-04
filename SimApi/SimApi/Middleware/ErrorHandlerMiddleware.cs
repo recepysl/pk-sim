@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.Extensions;
-using Serilog;
+﻿using Serilog;
 using System.Net;
 using System.Text.Json;
 
@@ -15,6 +14,7 @@ public class ErrorHandlerMiddleware
 
     public async Task Invoke(HttpContext context)
     {
+        Log.Information("LogErrorHandlerMiddleware.Invoke");
         try
         {
             await next(context);
