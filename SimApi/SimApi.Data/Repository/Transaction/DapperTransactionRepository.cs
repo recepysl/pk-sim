@@ -13,61 +13,61 @@ public class DapperTransactionRepository : IDapperTransactionRepository
         this.context = context;
     }
 
-    public List<Transaction> GetAll()
+    public List<TransactionView> GetAll()
     {
-        var sql = "SELECT * FROM dbo.Transaction";
+        var sql = "SELECT * FROM dbo.\"vTransactionReport\"";
         using (var connection = context.CreateConnection())
         {
             connection.Open();
-            var result = connection.Query<Transaction>(sql);
+            var result = connection.Query<TransactionView>(sql);
             connection.Close();
             return result.ToList();
         }
     }
 
-    public List<Transaction> GetByAccountId(int AccountId)
+    public List<TransactionView> GetByAccountId(int AccountId)
     {
-        var sql = "SELECT * FROM dbo.Transaction WHERE AccountId=@AccountId";
+        var sql = "SELECT * FROM dbo.\"vTransactionReport\" WHERE \"AccountId\"=@AccountId";
         using (var connection = context.CreateConnection())
         {
             connection.Open();
-            var result = connection.Query<Transaction>(sql, new { AccountId });
+            var result = connection.Query<TransactionView>(sql, new { AccountId });
             connection.Close();
             return result.ToList();
         }
     }
 
-    public List<Transaction> GetByCustomerId(int CustomerId)
+    public List<TransactionView> GetByCustomerId(int CustomerId)
     {
-        var sql = "SELECT * FROM dbo.Transaction WHERE CustomerId=@CustomerId";
+        var sql = "SELECT * FROM dbo.\"vTransactionReport\" WHERE \"CustomerId\"=@CustomerId";
         using (var connection = context.CreateConnection())
         {
             connection.Open();
-            var result = connection.Query<Transaction>(sql, new { CustomerId });
+            var result = connection.Query<TransactionView>(sql, new { CustomerId });
             connection.Close();
             return result.ToList();
         }
     }
 
-    public Transaction GetById(int Id)
+    public TransactionView GetById(int Id)
     {
-        var sql = "SELECT * FROM dbo.Transaction WHERE Id=@Id";
+        var sql = "SELECT * FROM dbo.\"vTransactionReport\" WHERE \"Id\"=@Id";
         using (var connection = context.CreateConnection())
         {
             connection.Open();
-            var result = connection.QueryFirst<Transaction>(sql, new { Id });
+            var result = connection.QueryFirst<TransactionView>(sql, new { Id });
             connection.Close();
             return result;
         }
     }
 
-    public List<Transaction> GetByReferenceNumber(string ReferenceNumber)
+    public List<TransactionView> GetByReferenceNumber(string ReferenceNumber)
     {
-        var sql = "SELECT * FROM dbo.Transaction WHERE ReferenceNumber=@ReferenceNumber";
+        var sql = "SELECT * FROM dbo.\"vTransactionReport\" WHERE \"ReferenceNumber\"=@ReferenceNumber";
         using (var connection = context.CreateConnection())
         {
             connection.Open();
-            var result = connection.Query<Transaction>(sql, new { ReferenceNumber });
+            var result = connection.Query<TransactionView>(sql, new { ReferenceNumber });
             connection.Close();
             return result.ToList();
         }

@@ -17,6 +17,7 @@ public class SimEfDbContext : DbContext
     public DbSet<Account> Account { get; set; }
     public DbSet<Customer> Customer { get; set; }
     public DbSet<Transaction> Transaction { get; set; }
+    public DbSet<TransactionView> TransactionView { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,6 +29,7 @@ public class SimEfDbContext : DbContext
         modelBuilder.ApplyConfiguration(new CustomerConfiguration());
         modelBuilder.ApplyConfiguration(new AccountConfiguration());
         modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+        modelBuilder.ApplyConfiguration(new TransactionViewConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

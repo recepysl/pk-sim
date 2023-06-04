@@ -10,10 +10,10 @@ namespace SimApi.Service;
 [ResponseGuid]
 [Route("simapi/v1/[controller]")]
 [ApiController]
-public class AccountController : ControllerBase
+public class DapperAccountController : ControllerBase
 {
-    private readonly IAccountService accountService;
-    public AccountController(IAccountService accountService)
+    private readonly IDapperAccountService accountService;
+    public DapperAccountController(IDapperAccountService accountService)
     {
         this.accountService = accountService;
     }
@@ -58,3 +58,4 @@ public class AccountController : ControllerBase
         return accountService.Delete(id);
     }
 }
+

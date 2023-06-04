@@ -17,6 +17,11 @@ public class DapperRepository<Entity> : IDapperRepository<Entity> where Entity :
         throw new NotImplementedException();
     }
 
+    public List<Entity> Filter(string sql)
+    {
+        throw new NotImplementedException();
+    }
+
     public List<Entity> GetAll()
     {
         throw new NotImplementedException();

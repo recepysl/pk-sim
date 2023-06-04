@@ -2,9 +2,9 @@
 
 public interface IDapperTransactionRepository
 {
-    List<Transaction> GetAll();
-    Transaction GetById(int id);
-    List<Transaction> GetByReferenceNumber(string referenceNumber);
-    List<Transaction> GetByCustomerId(int customerId);
-    List<Transaction> GetByAccountId(int accountId);
+    List<TransactionView> GetAll();
+    TransactionView GetById(int id);
+    List<TransactionView> GetByReferenceNumber(string referenceNumber);
+    List<TransactionView> GetByCustomerId(int customerId);
+    List<TransactionView> GetByAccountId(int accountId);
 }

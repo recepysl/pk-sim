@@ -16,20 +16,31 @@ public class DapperAccountRepository : IDapperRepository<Account>
 
     public void DeleteById(int Id)
     {
-        var sqlAccount = "DELETE FROM dbo.Account WHERE Id=@Id";
-        var sqlTransaction = "DELETE FROM dbo.Transaction WHERE AccountId=@Id";
+        var sqlAccount = "DELETE FROM dbo.\"Account\" WHERE \"Id\"=@Id";
+        var sqlTransaction = "DELETE FROM dbo.\"Transaction\" WHERE \"AccountId\"=@Id";
         using (var connection = context.CreateConnection())
         {
             connection.Open();
             connection.Execute(sqlAccount, new { Id });
-            connection.Execute(sqlTransaction, new { AccountId = Id });
+            connection.Execute(sqlTransaction, new { Id });
             connection.Close();
+        }
+    }
+
+    public List<Account> Filter(string sql)
+    {
+        using (var connection = context.CreateConnection())
+        {
+            connection.Open();
+            var result = connection.Query<Account>(sql);
+            connection.Close();
+            return result.ToList();
         }
     }
 
     public List<Account> GetAll()
     {
-        var sql = "SELECT * FROM dbo.Account";
+        var sql = "SELECT * FROM dbo.\"Account\"";
         using (var connection = context.CreateConnection())
         {
             connection.Open();
@@ -41,7 +52,7 @@ public class DapperAccountRepository : IDapperRepository<Account>
 
     public Account GetById(int Id)
     {
-        var sql = "SELECT * FROM dbo.Account WHERE Id=@Id";
+        var sql = "SELECT * FROM dbo.\"Account\" WHERE \"Id\"=@Id";
         using (var connection = context.CreateConnection())
         {
             connection.Open();
@@ -53,7 +64,7 @@ public class DapperAccountRepository : IDapperRepository<Account>
 
     public void Insert(Account entity)
     {
-        var sql = "INSERT INTO dbo.Account (CreatedAt,CreatedBy,CustomerId,AccountNumber,Name,OpenDate,IsValid,Balance)" +
+        var sql = "INSERT INTO dbo.\"Account\" (\"CreatedAt\",\"CreatedBy\",\"CustomerId\",\"AccountNumber\",\"Name\",\"OpenDate\",\"IsValid\",\"Balance\")" +
             "VALUES (@CreatedAt,@CreatedBy,@CustomerId,@AccountNumber,@Name,@OpenDate,@IsValid,@Balance)";
 
         entity.CreatedAt = DateTime.UtcNow;
@@ -74,7 +85,8 @@ public class DapperAccountRepository : IDapperRepository<Account>
         {
             connection.Open();
             var result = connection.Execute(sql, parameters);
-            connection.Close();        }
+            connection.Close();      
+        }
     }
 
     public void Update(Account entity)

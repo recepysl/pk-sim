@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
-using Serilog;
+﻿using Serilog;
 using SimApi.Base;
 using SimApi.Data.Uow;
 using SimApi.Service.Middleware;
 using SimApi.Service.RestExtension;
-using System.Net;
-using static SimApi.Service.Middleware.RequestLoggingMiddleware;
 
 namespace SimApi.Service;
 

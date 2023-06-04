@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Serilog;
 
-namespace SimApi.Service
+namespace SimApi.Service.Filters
 {
     public class LogResourceFilter : IResourceFilter
     {

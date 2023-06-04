@@ -15,9 +15,10 @@ public class UnitOfWork : IUnitOfWork
     private readonly SimDapperDbContext dapperDbContext;
     private bool disposed;
 
-    public UnitOfWork(SimEfDbContext dbContext)
+    public UnitOfWork(SimEfDbContext dbContext, SimDapperDbContext dapperDbContex)
     {
         this.dbContext = dbContext;
+        this.dapperDbContext = dapperDbContex;
 
         CategoryRepository = new GenericRepository<Category>(dbContext);
         DapperAccountRepository = new DapperAccountRepository(dapperDbContext);
@@ -60,7 +61,7 @@ public class UnitOfWork : IUnitOfWork
     {
         if (!disposed)
         {
-            if (disposing)
+            if (disposing && dbContext is not null)
             {
                 dbContext.Dispose();
             }

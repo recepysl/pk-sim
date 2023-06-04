@@ -19,7 +19,8 @@ public static class DbContextExtension
             var dbConfig = Configuration.GetConnectionString("PostgreSqlConnection");
             services.AddDbContext<SimEfDbContext>(opts =>
               opts.UseNpgsql(dbConfig));
-        }      
+        }
 
+        services.AddScoped<SimDapperDbContext>();
     }
 }

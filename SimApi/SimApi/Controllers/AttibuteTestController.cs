@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimApi.Base;
+using SimApi.Service.Filters;
 
 namespace SimApi.Service.Controllers;
 

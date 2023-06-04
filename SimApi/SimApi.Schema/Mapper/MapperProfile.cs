@@ -23,6 +23,7 @@ public class MapperProfile : Profile
         CreateMap<AccountRequest, Account>();
 
         CreateMap<Transaction, TransactionResponse>();
+        CreateMap<TransactionView, TransactionViewResponse>();
     }
 
 
