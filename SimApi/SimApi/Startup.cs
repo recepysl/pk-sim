@@ -43,7 +43,6 @@ public class Startup
         services.AddRepositoryExtension();
         services.AddServiceExtension();
         services.AddJwtExtension();
-
     }
 
 
