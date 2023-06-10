@@ -102,3 +102,107 @@ POSITION: 79
     File: parse_relation.c
     Line: 3611
     Routine: errorMissingColumn
+2023-06-10 11:53:11.434 [INF] Application is starting...
+2023-06-10 11:53:35.106 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 11:53:35.126 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 11:53:35.130 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 11:53:42.182 [WRN] The 'bool' property 'IsValid' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 11:53:42.189 [WRN] The 'bool' property 'IsValid' on entity type 'Customer' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 11:53:53.760 [INF] -------------Request-Begin------------
+2023-06-10 11:53:53.761 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Transaction/Report1 
+QueryString:  
+Request Body: 
+2023-06-10 11:53:53.762 [INF] 
+
+2023-06-10 11:53:53.762 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Transaction/Report1 
+QueryString:  
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"accountId":4,"amount":400.00,"direction":0,"transactionDate":"2023-06-04T11:17:43.684487Z","description":"depost-4","referenceNumber":"31A3EFBF6D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":6},{"accountId":5,"amount":500.00,"direction":0,"transactionDate":"2023-06-04T11:18:00.907138Z","description":"depost-5","referenceNumber":"E75FF37D8D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":110002,"accountName":"ac-110002","customerNumber":100102,"firstName":"100102","lastName":"100102","id":7},{"accountId":6,"amount":600.00,"direction":0,"transactionDate":"2023-06-04T11:18:18.465991Z","description":"depost-6","referenceNumber":"16A9402C26","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220001,"accountName":"ac-220001","customerNumber":100103,"firstName":"100103","lastName":"100103","id":8},{"accountId":7,"amount":700.00,"direction":0,"transactionDate":"2023-06-04T11:18:27.804444Z","description":"depost-7","referenceNumber":"93AC000D1B","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220002,"accountName":"ac-220002","customerNumber":100103,"firstName":"100103","lastName":"100103","id":9},{"accountId":8,"amount":800.00,"direction":0,"transactionDate":"2023-06-04T11:18:39.82292Z","description":"depost-8","referenceNumber":"3EBA0395F4","transactionCode":"DEPOSIT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":10},{"accountId":8,"amount":10.00,"direction":0,"transactionDate":"2023-06-04T11:19:19.372281Z","description":"4-8-10br","referenceNumber":"DB7821D254","transactionCode":"TRANSOT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":11},{"accountId":4,"amount":10.00,"direction":1,"transactionDate":"2023-06-04T11:19:19.372405Z","description":"4-8-10br","referenceNumber":"DB7821D254","transactionCode":"TRANSOT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":12}]}
+2023-06-10 11:53:53.765 [INF] -------------Request-End------------
+2023-06-10 11:54:02.170 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 11:54:02.173 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 11:54:02.175 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 11:54:45.199 [INF] -------------Request-Begin------------
+2023-06-10 11:54:45.200 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Transaction/Report2 
+QueryString:  
+Request Body: 
+2023-06-10 11:54:45.202 [INF] 
+
+2023-06-10 11:54:45.203 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Transaction/Report2 
+QueryString:  
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"accountId":4,"amount":400.00,"direction":0,"transactionDate":"2023-06-04T11:17:43.684487Z","description":"depost-4","referenceNumber":"31A3EFBF6D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":6},{"accountId":5,"amount":500.00,"direction":0,"transactionDate":"2023-06-04T11:18:00.907138Z","description":"depost-5","referenceNumber":"E75FF37D8D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":110002,"accountName":"ac-110002","customerNumber":100102,"firstName":"100102","lastName":"100102","id":7},{"accountId":6,"amount":600.00,"direction":0,"transactionDate":"2023-06-04T11:18:18.465991Z","description":"depost-6","referenceNumber":"16A9402C26","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220001,"accountName":"ac-220001","customerNumber":100103,"firstName":"100103","lastName":"100103","id":8},{"accountId":7,"amount":700.00,"direction":0,"transactionDate":"2023-06-04T11:18:27.804444Z","description":"depost-7","referenceNumber":"93AC000D1B","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220002,"accountName":"ac-220002","customerNumber":100103,"firstName":"100103","lastName":"100103","id":9},{"accountId":8,"amount":800.00,"direction":0,"transactionDate":"2023-06-04T11:18:39.82292Z","description":"depost-8","referenceNumber":"3EBA0395F4","transactionCode":"DEPOSIT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":10}]}
+2023-06-10 11:54:45.208 [INF] -------------Request-End------------
+2023-06-10 11:54:52.802 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 11:54:52.804 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 11:54:52.806 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 11:54:54.076 [INF] -------------Request-Begin------------
+2023-06-10 11:54:54.078 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Transaction/Report2 
+QueryString:  
+Request Body: 
+2023-06-10 11:54:54.080 [INF] 
+
+2023-06-10 11:54:54.081 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Transaction/Report2 
+QueryString:  
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"accountId":4,"amount":400.00,"direction":0,"transactionDate":"2023-06-04T11:17:43.684487Z","description":"depost-4","referenceNumber":"31A3EFBF6D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":6},{"accountId":5,"amount":500.00,"direction":0,"transactionDate":"2023-06-04T11:18:00.907138Z","description":"depost-5","referenceNumber":"E75FF37D8D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":110002,"accountName":"ac-110002","customerNumber":100102,"firstName":"100102","lastName":"100102","id":7},{"accountId":6,"amount":600.00,"direction":0,"transactionDate":"2023-06-04T11:18:18.465991Z","description":"depost-6","referenceNumber":"16A9402C26","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220001,"accountName":"ac-220001","customerNumber":100103,"firstName":"100103","lastName":"100103","id":8},{"accountId":7,"amount":700.00,"direction":0,"transactionDate":"2023-06-04T11:18:27.804444Z","description":"depost-7","referenceNumber":"93AC000D1B","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220002,"accountName":"ac-220002","customerNumber":100103,"firstName":"100103","lastName":"100103","id":9},{"accountId":8,"amount":800.00,"direction":0,"transactionDate":"2023-06-04T11:18:39.82292Z","description":"depost-8","referenceNumber":"3EBA0395F4","transactionCode":"DEPOSIT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":10}]}
+2023-06-10 11:54:54.084 [INF] -------------Request-End------------
+2023-06-10 11:55:04.533 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 11:55:04.536 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 11:55:04.536 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 11:55:07.840 [INF] -------------Request-Begin------------
+2023-06-10 11:55:07.841 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Transaction/Report1 
+QueryString:  
+Request Body: 
+2023-06-10 11:55:07.842 [INF] 
+
+2023-06-10 11:55:07.843 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Transaction/Report1 
+QueryString:  
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"accountId":4,"amount":400.00,"direction":0,"transactionDate":"2023-06-04T11:17:43.684487Z","description":"depost-4","referenceNumber":"31A3EFBF6D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":6},{"accountId":5,"amount":500.00,"direction":0,"transactionDate":"2023-06-04T11:18:00.907138Z","description":"depost-5","referenceNumber":"E75FF37D8D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":110002,"accountName":"ac-110002","customerNumber":100102,"firstName":"100102","lastName":"100102","id":7},{"accountId":6,"amount":600.00,"direction":0,"transactionDate":"2023-06-04T11:18:18.465991Z","description":"depost-6","referenceNumber":"16A9402C26","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220001,"accountName":"ac-220001","customerNumber":100103,"firstName":"100103","lastName":"100103","id":8},{"accountId":7,"amount":700.00,"direction":0,"transactionDate":"2023-06-04T11:18:27.804444Z","description":"depost-7","referenceNumber":"93AC000D1B","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220002,"accountName":"ac-220002","customerNumber":100103,"firstName":"100103","lastName":"100103","id":9},{"accountId":8,"amount":800.00,"direction":0,"transactionDate":"2023-06-04T11:18:39.82292Z","description":"depost-8","referenceNumber":"3EBA0395F4","transactionCode":"DEPOSIT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":10},{"accountId":8,"amount":10.00,"direction":0,"transactionDate":"2023-06-04T11:19:19.372281Z","description":"4-8-10br","referenceNumber":"DB7821D254","transactionCode":"TRANSOT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":11},{"accountId":4,"amount":10.00,"direction":1,"transactionDate":"2023-06-04T11:19:19.372405Z","description":"4-8-10br","referenceNumber":"DB7821D254","transactionCode":"TRANSOT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":12}]}
+2023-06-10 11:55:07.847 [INF] -------------Request-End------------
+2023-06-10 11:55:54.180 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 11:55:54.184 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 11:55:54.185 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 11:55:57.474 [INF] -------------Request-Begin------------
+2023-06-10 11:55:57.476 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/TransactionReport 
+QueryString:  
+Request Body: 
+2023-06-10 11:55:57.477 [INF] 
+
+2023-06-10 11:55:57.478 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/TransactionReport 
+QueryString:  
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"accountId":4,"amount":400.00,"direction":0,"transactionDate":"2023-06-04T11:17:43.684487Z","description":"depost-4","referenceNumber":"31A3EFBF6D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":6},{"accountId":5,"amount":500.00,"direction":0,"transactionDate":"2023-06-04T11:18:00.907138Z","description":"depost-5","referenceNumber":"E75FF37D8D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":110002,"accountName":"ac-110002","customerNumber":100102,"firstName":"100102","lastName":"100102","id":7},{"accountId":6,"amount":600.00,"direction":0,"transactionDate":"2023-06-04T11:18:18.465991Z","description":"depost-6","referenceNumber":"16A9402C26","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220001,"accountName":"ac-220001","customerNumber":100103,"firstName":"100103","lastName":"100103","id":8},{"accountId":7,"amount":700.00,"direction":0,"transactionDate":"2023-06-04T11:18:27.804444Z","description":"depost-7","referenceNumber":"93AC000D1B","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220002,"accountName":"ac-220002","customerNumber":100103,"firstName":"100103","lastName":"100103","id":9},{"accountId":8,"amount":800.00,"direction":0,"transactionDate":"2023-06-04T11:18:39.82292Z","description":"depost-8","referenceNumber":"3EBA0395F4","transactionCode":"DEPOSIT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":10},{"accountId":8,"amount":10.00,"direction":0,"transactionDate":"2023-06-04T11:19:19.372281Z","description":"4-8-10br","referenceNumber":"DB7821D254","transactionCode":"TRANSOT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":11},{"accountId":4,"amount":10.00,"direction":1,"transactionDate":"2023-06-04T11:19:19.372405Z","description":"4-8-10br","referenceNumber":"DB7821D254","transactionCode":"TRANSOT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":12}]}
+2023-06-10 11:55:57.483 [INF] -------------Request-End------------
+2023-06-10 11:59:47.893 [INF] Application is starting...

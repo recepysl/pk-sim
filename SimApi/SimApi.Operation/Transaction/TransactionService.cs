@@ -288,7 +288,7 @@ public class TransactionService : ITransactionService
                             CustomerId = acc.CustomerId,
                             CustomerNumber = cus.CustomerNumber,
                             FirstName = cus.FirstName,
-                            LastName = cus.LastName
+                            LastName = cus.LastName,
                         }).ToList();
 
             return new ApiResponse<List<TransactionViewResponse>>(list);
