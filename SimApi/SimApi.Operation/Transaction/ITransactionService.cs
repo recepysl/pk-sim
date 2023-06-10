@@ -13,4 +13,6 @@ public interface ITransactionService
     ApiResponse<TransferResponse> Transfer(TransferRequest request);
     ApiResponse<CashResponse> Deposit(CashRequest request);
     ApiResponse<CashResponse> Withdraw(CashRequest request);
+    ApiResponse<List<TransactionViewResponse>> Report1();
+    ApiResponse<List<TransactionViewResponse>> Report2();
 }

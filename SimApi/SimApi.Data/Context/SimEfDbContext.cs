@@ -31,6 +31,8 @@ public class SimEfDbContext : DbContext
         modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         modelBuilder.ApplyConfiguration(new TransactionViewConfiguration());
 
+        modelBuilder.Entity<TransactionView>().Metadata.SetIsTableExcludedFromMigrations(true);
+
         base.OnModelCreating(modelBuilder);
     }
 }

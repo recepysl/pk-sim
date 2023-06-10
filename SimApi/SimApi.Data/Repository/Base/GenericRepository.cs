@@ -53,6 +53,10 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
         return query.ToList();
     }
 
+    public IQueryable<Entity> GetAsQueryable()
+    {
+        return dbContext.Set<Entity>().AsQueryable();
+    }
     public Entity GetById(int id)
     {
         return dbContext.Set<Entity>().Find(id);

@@ -24,7 +24,7 @@ public class User : BaseModel
 public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
-    {
+    {       
         builder.Property(x => x.Id).IsRequired(true).UseIdentityColumn();
         builder.Property(x => x.CreatedAt).IsRequired(false);
         builder.Property(x => x.CreatedBy).IsRequired(false).HasMaxLength(30);

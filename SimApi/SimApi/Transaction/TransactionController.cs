@@ -69,4 +69,19 @@ public class TransactionController : ControllerBase
     }
 
 
+    [HttpGet("Report1")]
+    public ApiResponse<List<TransactionViewResponse>> Report1()
+    {
+        var response = transactionService.Report1();
+        return response;
+    }
+
+
+    [HttpGet("Report2")]
+    public ApiResponse<List<TransactionViewResponse>> Report2()
+    {
+        var response = transactionService.Report2();
+        return response;
+    }
+
 }

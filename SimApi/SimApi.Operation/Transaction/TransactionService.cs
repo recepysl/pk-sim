@@ -14,7 +14,7 @@ public class TransactionService : ITransactionService
     private readonly IMapper mapper;
     private readonly IAccountService accountService;
 
-    public TransactionService(IUnitOfWork unitOfWork, IMapper mapper,IAccountService accountService)
+    public TransactionService(IUnitOfWork unitOfWork, IMapper mapper, IAccountService accountService)
     {
         this.mapper = mapper;
         this.unitOfWork = unitOfWork;
@@ -34,10 +34,10 @@ public class TransactionService : ITransactionService
             return new ApiResponse<List<TransactionResponse>>(ex.Message);
         }
     }
-       
+
     public ApiResponse<List<TransactionResponse>> GetByParameter(int accountId, int customerId, decimal amount, string description)
     {
-        var predicate = GetExpression(accountId,customerId,amount,description);
+        var predicate = GetExpression(accountId, customerId, amount, description);
         var list = unitOfWork.Repository<Transaction>().Where(predicate).ToList();
 
         var mapped = mapper.Map<List<Transaction>, List<TransactionResponse>>(list);
@@ -51,13 +51,12 @@ public class TransactionService : ITransactionService
             var entityList = unitOfWork.Repository<Transaction>().Where(x => x.ReferenceNumber == referenceNumber).ToList();
             var mapped = mapper.Map<List<Transaction>, List<TransactionResponse>>(entityList);
             return new ApiResponse<List<TransactionResponse>>(mapped);
-        } 
+        }
         catch (Exception ex)
         {
             return new ApiResponse<List<TransactionResponse>>(ex.Message);
         }
     }
-
 
     public ApiResponse<TransactionResponse> GetById(int id)
     {
@@ -77,6 +76,7 @@ public class TransactionService : ITransactionService
             return new ApiResponse<TransactionResponse>(ex.Message);
         }
     }
+
     public ApiResponse<CashResponse> Withdraw(CashRequest request)
     {
         if (request is null)
@@ -158,10 +158,11 @@ public class TransactionService : ITransactionService
         {
             Id = transaction.Id,
             ReferenceNumber = referenceNumber
-        }; 
+        };
 
         return new ApiResponse<CashResponse>(response);
-    } 
+    }
+
     public ApiResponse<TransferResponse> Transfer(TransferRequest request)
     {
         if (request is null)
@@ -251,5 +252,50 @@ public class TransactionService : ITransactionService
         return predicate;
     }
 
+    public ApiResponse<List<TransactionViewResponse>> Report1()
+    {
+        try
+        {
+            var entityList = unitOfWork.Repository<TransactionView>().GetAll();
+            var mapped = mapper.Map<List<TransactionView>, List<TransactionViewResponse>>(entityList);
+            return new ApiResponse<List<TransactionViewResponse>>(mapped);
+        }
+        catch (Exception ex)
+        {
+            return new ApiResponse<List<TransactionViewResponse>>(ex.Message);
+        }
+    }
+    public ApiResponse<List<TransactionViewResponse>> Report2()
+    {
+        try
+        {
+            var list = (from tran in unitOfWork.Repository<Transaction>().GetAsQueryable()
+                        join acc in unitOfWork.Repository<Account>().GetAsQueryable() on tran.AccountId equals acc.Id
+                        join cus in unitOfWork.Repository<Customer>().GetAsQueryable() on acc.CustomerId equals cus.Id
+                        where tran.TransactionCode == TransactionCode.Deposit
+                        select new TransactionViewResponse
+                        {
+                            AccountId = acc.Id,
+                            Amount = tran.Amount,
+                            Description = tran.Description,
+                            Direction = tran.Direction,
+                            Id = tran.Id,
+                            ReferenceNumber = tran.ReferenceNumber,
+                            TransactionCode = tran.TransactionCode,
+                            TransactionDate = tran.TransactionDate,
+                            AccountName = acc.Name,
+                            AccountNumber = acc.AccountNumber,
+                            CustomerId = acc.CustomerId,
+                            CustomerNumber = cus.CustomerNumber,
+                            FirstName = cus.FirstName,
+                            LastName = cus.LastName
+                        }).ToList();
 
+            return new ApiResponse<List<TransactionViewResponse>>(list);
+        }
+        catch (Exception ex)
+        {
+            return new ApiResponse<List<TransactionViewResponse>>(ex.Message);
+        }
+    }
 }
