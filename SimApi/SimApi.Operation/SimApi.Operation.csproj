@@ -5,6 +5,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" Version="2.6.111" />
+  </ItemGroup>
 	
   <ItemGroup>
     <ProjectReference Include="..\SimApi.Schema\SimApi.Schema.csproj" />

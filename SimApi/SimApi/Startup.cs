@@ -34,6 +34,7 @@ public class Startup
         services.AddResponseCompression();
 
         services.AddMemoryCache();
+        services.AddRedisExtension(Configuration);
 
         services.AddCustomSwaggerExtension();
         services.AddDbContextExtension(Configuration);
