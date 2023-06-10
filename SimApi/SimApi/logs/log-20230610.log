@@ -544,3 +544,193 @@ QueryString:
 StatusCode: 200 
 Response Body: []
 2023-06-10 12:40:54.799 [INF] -------------Request-End------------
+2023-06-10 14:04:05.368 [INF] Application is starting...
+2023-06-10 14:06:13.554 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:06:13.561 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:06:13.564 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:06:35.340 [WRN] The 'bool' property 'IsValid' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 14:06:35.346 [WRN] The 'bool' property 'IsValid' on entity type 'Customer' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 14:07:24.951 [INF] -------------Request-Begin------------
+2023-06-10 14:07:24.954 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+Request Body: 
+2023-06-10 14:07:24.957 [INF] 
+
+2023-06-10 14:07:24.962 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-10 14:07:24.968 [INF] -------------Request-End------------
+2023-06-10 14:07:48.018 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:07:48.030 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:07:48.033 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:08:20.197 [INF] -------------Request-Begin------------
+2023-06-10 14:08:20.203 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+Request Body: 
+2023-06-10 14:08:20.204 [INF] 
+
+2023-06-10 14:08:20.205 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-10 14:08:20.211 [INF] -------------Request-End------------
+2023-06-10 14:08:27.936 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:08:27.953 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:08:27.958 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:08:37.685 [INF] -------------Request-Begin------------
+2023-06-10 14:08:37.687 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+Request Body: 
+2023-06-10 14:08:37.689 [INF] 
+
+2023-06-10 14:08:37.691 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-10 14:08:37.701 [INF] -------------Request-End------------
+2023-06-10 14:08:51.317 [INF] Application is starting...
+2023-06-10 14:09:11.666 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:09:11.673 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:09:11.678 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:14:27.816 [INF] Application is starting...
+2023-06-10 14:14:47.105 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:14:47.125 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:14:47.131 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:14:58.026 [WRN] The 'bool' property 'IsValid' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 14:14:58.037 [WRN] The 'bool' property 'IsValid' on entity type 'Customer' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 14:15:03.541 [INF] -------------Request-Begin------------
+2023-06-10 14:15:03.543 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+Request Body: 
+2023-06-10 14:15:03.549 [INF] 
+
+2023-06-10 14:15:03.551 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-10 14:15:03.588 [INF] -------------Request-End------------
+2023-06-10 14:15:08.739 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:15:08.741 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:15:08.743 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:16:07.595 [INF] -------------Request-Begin------------
+2023-06-10 14:16:07.605 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string%20 
+Request Body: 
+2023-06-10 14:16:07.607 [INF] 
+
+2023-06-10 14:16:07.610 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string%20 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[]}
+2023-06-10 14:16:07.613 [INF] -------------Request-End------------
+2023-06-10 14:16:13.850 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:16:13.854 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:16:13.855 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:16:21.621 [INF] -------------Request-Begin------------
+2023-06-10 14:16:21.623 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string2 
+Request Body: 
+2023-06-10 14:16:21.624 [INF] 
+
+2023-06-10 14:16:21.625 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string2 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[]}
+2023-06-10 14:16:21.626 [INF] -------------Request-End------------
+2023-06-10 14:16:26.208 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:16:26.209 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:16:26.209 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:16:32.843 [INF] -------------Request-Begin------------
+2023-06-10 14:16:32.849 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+Request Body: 
+2023-06-10 14:16:32.852 [INF] 
+
+2023-06-10 14:16:32.855 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-10 14:16:32.861 [INF] -------------Request-End------------
+2023-06-10 14:17:27.249 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:17:27.261 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:17:27.261 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:17:33.034 [INF] -------------Request-Begin------------
+2023-06-10 14:17:33.037 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog/RemoveCashe 
+QueryString: ?username=string 
+Request Body: 
+2023-06-10 14:17:33.052 [INF] 
+
+2023-06-10 14:17:33.061 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog/RemoveCashe 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":null}
+2023-06-10 14:17:33.071 [INF] -------------Request-End------------
+2023-06-10 14:17:41.480 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 14:17:41.482 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 14:17:41.483 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 14:17:50.099 [INF] -------------Request-Begin------------
+2023-06-10 14:17:50.102 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+Request Body: 
+2023-06-10 14:17:50.108 [INF] 
+
+2023-06-10 14:17:50.113 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLog 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-10 14:17:50.139 [INF] -------------Request-End------------

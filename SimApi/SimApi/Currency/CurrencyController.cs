@@ -10,39 +10,39 @@ namespace SimApi.Service;
 [ResponseGuid]
 [Route("simapi/v1/[controller]")]
 [ApiController]
-public class CustomerController : ControllerBase
+public class CurrencyController : ControllerBase
 {
-    private readonly ICustomerService service;
+    private readonly ICurrencyService service;
 
-    public CustomerController(ICustomerService service)
+    public CurrencyController(ICurrencyService service)
     {
         this.service = service;
     }
 
     [HttpGet]
-    public ApiResponse<List<CustomerResponse>> GetAll()
+    public ApiResponse<List<CurrencyResponse>> GetAll()
     {
         var list = service.GetAll();
         return list;
     }
 
     [HttpGet("{id}")]
-    public ApiResponse<CustomerResponse> GetById(int id)
+    public ApiResponse<CurrencyResponse> GetById(int id)
     {
         var model = service.GetById(id);
         return model;
     }
 
     [HttpPost]
-    public ApiResponse Post([FromBody] CustomerRequest request)
+    public ApiResponse Post([FromBody] CurrencyRequest request)
     {
-       return service.Insert(request);
+        return service.Insert(request);
     }
 
     [HttpPut("{id}")]
-    public ApiResponse Put(int id, [FromBody] CustomerRequest request)
+    public ApiResponse Put(int id, [FromBody] CurrencyRequest request)
     {
-        return service.Update(id,request);
+        return service.Update(id, request);
     }
 
     [HttpDelete("{id}")]

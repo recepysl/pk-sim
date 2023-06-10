@@ -28,6 +28,9 @@ public class MapperProfile : Profile
         CreateMap<UserLogRequest, UserLog>();
         CreateMap<UserLog, UserLogResponse>();
 
+        CreateMap<CurrencyRequest, Currency>();
+        CreateMap<Currency, CurrencyResponse>();
+
     }
 
 

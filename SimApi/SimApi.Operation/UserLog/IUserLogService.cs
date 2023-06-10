@@ -1,4 +1,5 @@
-﻿using SimApi.Data;
+﻿using SimApi.Base;
+using SimApi.Data;
 using SimApi.Schema;
 
 namespace SimApi.Operation;
@@ -6,4 +7,7 @@ namespace SimApi.Operation;
 public interface IUserLogService : IBaseService<UserLog,UserLogRequest,UserLogResponse>
 {
     void Log(string username,string logType);
+    ApiResponse<List<UserLogResponse>> GetByUserName(string username);
+    ApiResponse<List<UserLogResponse>> GetByFilter(string username,string logType);
+
 }
