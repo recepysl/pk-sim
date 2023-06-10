@@ -1,6 +1,9 @@
-﻿namespace SimApi.Operation;
+﻿using SimApi.Data;
+using SimApi.Schema;
 
-public interface IUserLogService
+namespace SimApi.Operation;
+
+public interface IUserLogService : IBaseService<UserLog,UserLogRequest,UserLogResponse>
 {
     void Log(string username,string logType);
 }

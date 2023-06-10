@@ -24,6 +24,7 @@ public class CategoryController : ControllerBase
 
 
     [HttpGet]
+    [ResponseCache(Duration = 2000, Location = ResponseCacheLocation.Any, NoStore = false)]
     public List<CategoryResponse> GetAll()
     {
         var list = repository.GetAll();
@@ -32,6 +33,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [ResponseCache(CacheProfileName = ResponseCasheType.Minute45)]
     public CategoryResponse GetById(int id)
     {
         var row = repository.GetById(id);

@@ -1,17 +1,21 @@
-﻿using SimApi.Data;
+﻿using AutoMapper;
+using SimApi.Data;
 using SimApi.Data.Uow;
+using SimApi.Schema;
 
 namespace SimApi.Operation;
 
-public class UserLogService : IUserLogService
+public class UserLogService : BaseService<UserLog, UserLogRequest, UserLogResponse>, IUserLogService
 {
 
     private readonly IUnitOfWork unitOfWork;
-
-    public UserLogService(IUnitOfWork unitOfWork)
+    private readonly IMapper mapper;
+    public UserLogService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
     {
         this.unitOfWork = unitOfWork;
+        this.mapper = mapper;
     }
+
     public void Log(string username, string logType)
     {
         UserLog log = new(); 

@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using SimApi.Base;
 using SimApi.Data.Uow;
 using SimApi.Service.Middleware;
@@ -22,6 +23,17 @@ public class Startup
 
         JwtConfig = Configuration.GetSection("JwtConfig").Get<JwtConfig>();
         services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
+
+        services.AddControllersWithViews(options =>
+        options.CacheProfiles.Add(ResponseCasheType.Minute45, new CacheProfile
+        {
+            Duration = 45 * 60,
+            NoStore = false,
+            Location = ResponseCacheLocation.Any
+        }));
+        services.AddResponseCompression();
+
+        services.AddMemoryCache();
 
         services.AddCustomSwaggerExtension();
         services.AddDbContextExtension(Configuration);

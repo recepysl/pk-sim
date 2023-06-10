@@ -206,3 +206,341 @@ StatusCode: 200
 Response Body: {"success":true,"message":"Success","response":[{"accountId":4,"amount":400.00,"direction":0,"transactionDate":"2023-06-04T11:17:43.684487Z","description":"depost-4","referenceNumber":"31A3EFBF6D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":6},{"accountId":5,"amount":500.00,"direction":0,"transactionDate":"2023-06-04T11:18:00.907138Z","description":"depost-5","referenceNumber":"E75FF37D8D","transactionCode":"DEPOSIT","customerId":1,"accountNumber":110002,"accountName":"ac-110002","customerNumber":100102,"firstName":"100102","lastName":"100102","id":7},{"accountId":6,"amount":600.00,"direction":0,"transactionDate":"2023-06-04T11:18:18.465991Z","description":"depost-6","referenceNumber":"16A9402C26","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220001,"accountName":"ac-220001","customerNumber":100103,"firstName":"100103","lastName":"100103","id":8},{"accountId":7,"amount":700.00,"direction":0,"transactionDate":"2023-06-04T11:18:27.804444Z","description":"depost-7","referenceNumber":"93AC000D1B","transactionCode":"DEPOSIT","customerId":2,"accountNumber":220002,"accountName":"ac-220002","customerNumber":100103,"firstName":"100103","lastName":"100103","id":9},{"accountId":8,"amount":800.00,"direction":0,"transactionDate":"2023-06-04T11:18:39.82292Z","description":"depost-8","referenceNumber":"3EBA0395F4","transactionCode":"DEPOSIT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":10},{"accountId":8,"amount":10.00,"direction":0,"transactionDate":"2023-06-04T11:19:19.372281Z","description":"4-8-10br","referenceNumber":"DB7821D254","transactionCode":"TRANSOT","customerId":3,"accountNumber":330001,"accountName":"ac-330001","customerNumber":100104,"firstName":"100104","lastName":"100104","id":11},{"accountId":4,"amount":10.00,"direction":1,"transactionDate":"2023-06-04T11:19:19.372405Z","description":"4-8-10br","referenceNumber":"DB7821D254","transactionCode":"TRANSOT","customerId":1,"accountNumber":1100001,"accountName":"ac-1100001","customerNumber":100102,"firstName":"100102","lastName":"100102","id":12}]}
 2023-06-10 11:55:57.483 [INF] -------------Request-End------------
 2023-06-10 11:59:47.893 [INF] Application is starting...
+2023-06-10 12:20:24.989 [INF] Application is starting...
+2023-06-10 12:20:42.238 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:20:42.248 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:20:42.256 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:20:44.620 [WRN] The 'bool' property 'IsValid' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 12:20:44.629 [WRN] The 'bool' property 'IsValid' on entity type 'Customer' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 12:20:45.809 [INF] -------------Request-Begin------------
+2023-06-10 12:20:45.813 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Product 
+QueryString:  
+Request Body: 
+2023-06-10 12:20:45.814 [INF] 
+
+2023-06-10 12:20:45.814 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Product 
+QueryString:  
+StatusCode: 200 
+Response Body: []
+2023-06-10 12:20:45.816 [INF] -------------Request-End------------
+2023-06-10 12:20:56.299 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:20:56.304 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:20:56.307 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:21:07.475 [INF] -------------Request-Begin------------
+2023-06-10 12:21:07.480 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+Request Body: 
+2023-06-10 12:21:07.484 [INF] 
+
+2023-06-10 12:21:07.486 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+StatusCode: 200 
+Response Body: []
+2023-06-10 12:21:07.488 [INF] -------------Request-End------------
+2023-06-10 12:22:23.248 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:22:23.273 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:22:23.277 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:22:29.116 [INF] -------------Request-Begin------------
+2023-06-10 12:22:29.123 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+Request Body: {"name":"Market","order":1}
+2023-06-10 12:22:29.127 [INF] 
+
+2023-06-10 12:22:29.129 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+StatusCode: 200 
+Response Body: {"name":"Market","order":1,"id":1}
+2023-06-10 12:22:29.130 [INF] -------------Request-End------------
+2023-06-10 12:22:46.873 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:22:46.876 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:22:46.877 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:22:59.109 [INF] -------------Request-Begin------------
+2023-06-10 12:22:59.111 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+Request Body: 
+2023-06-10 12:22:59.113 [INF] 
+
+2023-06-10 12:22:59.114 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+StatusCode: 200 
+Response Body: [{"name":"Market","order":1,"id":1}]
+2023-06-10 12:22:59.115 [INF] -------------Request-End------------
+2023-06-10 12:23:24.472 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:23:24.497 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:23:24.498 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:23:26.234 [ERR] Failed executing DbCommand (14ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime), @p5='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO dbo."Category" ("CreatedAt", "CreatedBy", "Name", "Order", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING "Id";
+2023-06-10 12:23:26.309 [ERR] An exception occurred in the database while saving changes for context type 'SimApi.Data.Context.SimEfDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Category_Name"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Category_Name"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: dbo
+    TableName: Category
+    ConstraintName: IX_Category_Name
+    File: nbtinsert.c
+    Line: 670
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "IX_Category_Name"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "IX_Category_Name"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: dbo
+    TableName: Category
+    ConstraintName: IX_Category_Name
+    File: nbtinsert.c
+    Line: 670
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2023-06-10 12:23:41.571 [FTL] Path=/simapi/v1/Category || Method=POST || Exception=An error occurred while saving the entity changes. See the inner exception for details.
+2023-06-10 12:23:41.658 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id cab77ca5-5654-4111-b5d9-372aa41bc1c3 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1453
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 997
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at SimApi.Service.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\RepoRy\pk-sim\SimApi\SimApi\Middleware\ErrorHandlerMiddleware.cs:line 33
+   at SimApi.Service.Middleware.HeartBeatMiddleware.Invoke(HttpContext context) in C:\RepoRy\pk-sim\SimApi\SimApi\Middleware\HeartBeatMiddleware.cs:line 25
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-06-10 12:23:41.746 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id cab77ca5-5654-4111-b5d9-372aa41bc1c3 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1453
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 997
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-06-10 12:23:41.766 [ERR] Connection id "0HMR9IFN0CJ8T", Request id "0HMR9IFN0CJ8T:00000011": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id cab77ca5-5654-4111-b5d9-372aa41bc1c3 and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1453
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 997
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at SimApi.Service.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\RepoRy\pk-sim\SimApi\SimApi\Middleware\ErrorHandlerMiddleware.cs:line 33
+   at SimApi.Service.Middleware.HeartBeatMiddleware.Invoke(HttpContext context) in C:\RepoRy\pk-sim\SimApi\SimApi\Middleware\HeartBeatMiddleware.cs:line 25
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2023-06-10 12:24:03.274 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:24:03.306 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:24:03.307 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:24:05.089 [INF] -------------Request-Begin------------
+2023-06-10 12:24:05.107 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+Request Body: {"name":"Market2","order":2}
+2023-06-10 12:24:05.113 [INF] 
+
+2023-06-10 12:24:05.120 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+StatusCode: 200 
+Response Body: {"name":"Market2","order":2,"id":3}
+2023-06-10 12:24:05.125 [INF] -------------Request-End------------
+2023-06-10 12:24:11.782 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:24:11.792 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:24:11.816 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:24:27.660 [INF] -------------Request-Begin------------
+2023-06-10 12:24:27.662 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+Request Body: 
+2023-06-10 12:24:27.664 [INF] 
+
+2023-06-10 12:24:27.665 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category 
+QueryString:  
+StatusCode: 200 
+Response Body: [{"name":"Market","order":1,"id":1},{"name":"Market2","order":2,"id":3}]
+2023-06-10 12:24:27.669 [INF] -------------Request-End------------
+2023-06-10 12:35:29.320 [INF] Application is starting...
+2023-06-10 12:36:11.721 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:36:11.727 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:36:11.729 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:36:16.957 [WRN] The 'bool' property 'IsValid' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 12:36:17.025 [WRN] The 'bool' property 'IsValid' on entity type 'Customer' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 12:36:21.987 [INF] -------------Request-Begin------------
+2023-06-10 12:36:21.989 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category/1 
+QueryString:  
+Request Body: 
+2023-06-10 12:36:21.991 [INF] 
+
+2023-06-10 12:36:21.992 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category/1 
+QueryString:  
+StatusCode: 200 
+Response Body: {"name":"Market","order":1,"id":1}
+2023-06-10 12:36:21.994 [INF] -------------Request-End------------
+2023-06-10 12:36:33.787 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:36:33.802 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:36:33.803 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:36:40.158 [INF] -------------Request-Begin------------
+2023-06-10 12:36:40.160 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category/3 
+QueryString:  
+Request Body: 
+2023-06-10 12:36:40.162 [INF] 
+
+2023-06-10 12:36:40.169 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Category/3 
+QueryString:  
+StatusCode: 200 
+Response Body: {"name":"Market2","order":2,"id":3}
+2023-06-10 12:36:40.173 [INF] -------------Request-End------------
+2023-06-10 12:40:08.193 [INF] Application is starting...
+2023-06-10 12:40:33.088 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:40:33.107 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:40:33.109 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:40:34.380 [WRN] The 'bool' property 'IsValid' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 12:40:34.387 [WRN] The 'bool' property 'IsValid' on entity type 'Customer' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-10 12:40:35.407 [INF] -------------Request-Begin------------
+2023-06-10 12:40:35.409 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Product 
+QueryString:  
+Request Body: 
+2023-06-10 12:40:35.409 [INF] 
+
+2023-06-10 12:40:35.410 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Product 
+QueryString:  
+StatusCode: 200 
+Response Body: []
+2023-06-10 12:40:35.413 [INF] -------------Request-End------------
+2023-06-10 12:40:47.132 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:40:47.134 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:40:47.136 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:40:50.825 [INF] -------------Request-Begin------------
+2023-06-10 12:40:50.827 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Product 
+QueryString:  
+Request Body: 
+2023-06-10 12:40:50.829 [INF] 
+
+2023-06-10 12:40:50.830 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Product 
+QueryString:  
+StatusCode: 200 
+Response Body: []
+2023-06-10 12:40:50.831 [INF] -------------Request-End------------
+2023-06-10 12:40:53.195 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-10 12:40:53.196 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-10 12:40:53.198 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-10 12:40:54.778 [INF] -------------Request-Begin------------
+2023-06-10 12:40:54.781 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Product 
+QueryString:  
+Request Body: 
+2023-06-10 12:40:54.788 [INF] 
+
+2023-06-10 12:40:54.794 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/Product 
+QueryString:  
+StatusCode: 200 
+Response Body: []
+2023-06-10 12:40:54.799 [INF] -------------Request-End------------
