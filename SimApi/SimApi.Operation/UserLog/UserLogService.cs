@@ -13,29 +13,12 @@ public class UserLogService : BaseService<UserLog, UserLogRequest, UserLogRespon
     private readonly IUnitOfWork unitOfWork;
     private readonly IMemoryCache memoryCache;
     private readonly IMapper mapper;
-    public UserLogService(IUnitOfWork unitOfWork, IMapper mapper, IMemoryCache memoryCache) : base(unitOfWork, mapper)
+    public UserLogService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
     {
         this.unitOfWork = unitOfWork;
         this.mapper = mapper;
-        this.memoryCache = memoryCache;
     }
 
-    public ApiResponse<List<UserLogResponse>> GetByFilter(string username, string logType)
-    {
-        List<UserLogResponse> entityList;
-        var checkMemory = memoryCache.TryGetValue(username, out List<UserLogResponse> response);
-        if (checkMemory)
-        {
-            entityList = response;
-        }
-        else
-        {
-            entityList = GetByUserName(username).Response;
-        }
-
-        entityList = entityList.Where(x=> x.LogType == logType).ToList();
-        return new ApiResponse<List<UserLogResponse>>(entityList);
-    }
 
     public ApiResponse<List<UserLogResponse>> GetByUserName(string username)
     {

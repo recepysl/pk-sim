@@ -4,6 +4,7 @@ namespace SimApi.Schema;
 
 public class TransactionResponse: BaseResponse
 {
+    public string CurrencyCode { get; set; }
     public int AccountId { get; set; }
     public decimal Amount { get; set; }
     public byte Direction { get; set; }

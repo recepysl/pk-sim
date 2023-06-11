@@ -8,6 +8,4 @@ public interface IUserLogService : IBaseService<UserLog,UserLogRequest,UserLogRe
 {
     void Log(string username,string logType);
     ApiResponse<List<UserLogResponse>> GetByUserName(string username);
-    ApiResponse<List<UserLogResponse>> GetByFilter(string username,string logType);
-
 }

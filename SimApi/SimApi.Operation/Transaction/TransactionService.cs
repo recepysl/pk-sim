@@ -13,11 +13,13 @@ public class TransactionService : ITransactionService
     private readonly IUnitOfWork unitOfWork;
     private readonly IMapper mapper;
     private readonly IAccountService accountService;
+    private readonly IRedisService redisService;
 
-    public TransactionService(IUnitOfWork unitOfWork, IMapper mapper, IAccountService accountService)
+    public TransactionService(IUnitOfWork unitOfWork, IRedisService redisService, IMapper mapper, IAccountService accountService)
     {
         this.mapper = mapper;
         this.unitOfWork = unitOfWork;
+        this.redisService = redisService;
         this.accountService = accountService;
     }
 
@@ -91,6 +93,13 @@ public class TransactionService : ITransactionService
         }
         var account = accountResponse.Response;
 
+
+        var currencyResponse = GetCurrency(account.CurrencyId);
+        if (!currencyResponse.Success || currencyResponse.Response is null)
+        {
+            return new ApiResponse<CashResponse>(currencyResponse.Message);
+        }
+
         var balanceResponse = accountService.Balance(request.AccountId, request.Amount, TransactionDirection.Withdraw);
         if (!balanceResponse.Success)
         {
@@ -107,6 +116,7 @@ public class TransactionService : ITransactionService
         transaction.Direction = (byte)TransactionDirection.Withdraw;
         transaction.ReferenceNumber = referenceNumber;
         transaction.Description = request.Description;
+        transaction.CurrencyCode = currencyResponse.Response.Code;
 
         unitOfWork.Repository<Transaction>().Insert(transaction);
         unitOfWork.Complete();
@@ -119,6 +129,8 @@ public class TransactionService : ITransactionService
 
         return new ApiResponse<CashResponse>(response);
     }
+
+
 
     public ApiResponse<CashResponse> Deposit(CashRequest request)
     {
@@ -133,6 +145,12 @@ public class TransactionService : ITransactionService
             return new ApiResponse<CashResponse>(accountResponse.Message);
         }
         var account = accountResponse.Response;
+
+        var currencyResponse = GetCurrency(account.CurrencyId);
+        if (!currencyResponse.Success || currencyResponse.Response is null)
+        {
+            return new ApiResponse<CashResponse>(currencyResponse.Message);
+        }
 
         var balanceResponse = accountService.Balance(request.AccountId, request.Amount, TransactionDirection.Deposit);
         if (!balanceResponse.Success)
@@ -150,6 +168,7 @@ public class TransactionService : ITransactionService
         transaction.Direction = (byte)TransactionDirection.Deposit;
         transaction.ReferenceNumber = referenceNumber;
         transaction.Description = request.Description;
+        transaction.CurrencyCode = currencyResponse.Response.Code;
 
         unitOfWork.Repository<Transaction>().Insert(transaction);
         unitOfWork.Complete();
@@ -186,11 +205,17 @@ public class TransactionService : ITransactionService
             return new ApiResponse<TransferResponse>(fromAccountResponse.Message);
         }
         var fromAccount = fromAccountResponse.Response;
+        var currencyResponseFrom = GetCurrency(fromAccount.CurrencyId);
+        if (!currencyResponseFrom.Success || currencyResponseFrom.Response is null)
+        {
+            return new ApiResponse<TransferResponse>(currencyResponseFrom.Message);
+        }
         var fromBalanceResponse = accountService.Balance(request.FromAccountId, request.Amount, TransactionDirection.Withdraw);
         if (!fromBalanceResponse.Success)
         {
             return new ApiResponse<TransferResponse>(fromBalanceResponse.Message);
         }
+       
 
         var toAccountResponse = accountService.GetById(request.ToAccountId);
         if (!toAccountResponse.Success || toAccountResponse.Response is null)
@@ -198,10 +223,20 @@ public class TransactionService : ITransactionService
             return new ApiResponse<TransferResponse>(toAccountResponse.Message);
         }
         var toAccount = toAccountResponse.Response;
+        var currencyResponseTo = GetCurrency(toAccount.CurrencyId);
+        if (!currencyResponseTo.Success || currencyResponseTo.Response is null)
+        {
+            return new ApiResponse<TransferResponse>(currencyResponseTo.Message);
+        }
         var toBalanceResponse = accountService.Balance(request.ToAccountId, request.Amount, TransactionDirection.Deposit);
         if (!toBalanceResponse.Success)
         {
             return new ApiResponse<TransferResponse>(toBalanceResponse.Message);
+        }
+
+        if (currencyResponseFrom.Response.Code != currencyResponseTo.Response.Code)
+        {
+            return new ApiResponse<TransferResponse>("Invalid account currency.");
         }
 
         bool isSameCustomer = fromAccount.CustomerId == toAccount.CustomerId;
@@ -215,6 +250,7 @@ public class TransactionService : ITransactionService
         transactionTo.Direction = (byte)TransactionDirection.Deposit;
         transactionTo.ReferenceNumber = refenceNumber;
         transactionTo.Description = request.Description;
+        transactionTo.CurrencyCode = currencyResponseTo.Response.Code;
         unitOfWork.Repository<Transaction>().Insert(transactionTo);
 
         Transaction transactionFrom = new();
@@ -225,6 +261,7 @@ public class TransactionService : ITransactionService
         transactionFrom.Direction = (byte)TransactionDirection.Withdraw;
         transactionFrom.ReferenceNumber = refenceNumber;
         transactionFrom.Description = request.Description;
+        transactionFrom.CurrencyCode = currencyResponseFrom.Response.Code;
         unitOfWork.Repository<Transaction>().Insert(transactionFrom);
 
         unitOfWork.Complete();
@@ -236,22 +273,7 @@ public class TransactionService : ITransactionService
 
         return new ApiResponse<TransferResponse>(response);
     }
-
-    private Expression<Func<Transaction, bool>> GetExpression(int accountId, int customerId, decimal amount, string description)
-    {
-        var predicate = PredicateBuilder.New<Transaction>(true);
-        if (!string.IsNullOrEmpty(description))
-            predicate.And(x => x.Description.StartsWith(description));
-        if (accountId > 0)
-            predicate.And(x => x.AccountId == accountId);
-        if (customerId > 0)
-            predicate.And(x => x.Account.CustomerId == customerId);
-        if (amount > 0)
-            predicate.And(x => x.Amount == amount);
-
-        return predicate;
-    }
-
+   
     public ApiResponse<List<TransactionViewResponse>> Report1()
     {
         try
@@ -289,6 +311,7 @@ public class TransactionService : ITransactionService
                             CustomerNumber = cus.CustomerNumber,
                             FirstName = cus.FirstName,
                             LastName = cus.LastName,
+                            CurrencyCode = tran.CurrencyCode
                         }).ToList();
 
             return new ApiResponse<List<TransactionViewResponse>>(list);
@@ -298,4 +321,44 @@ public class TransactionService : ITransactionService
             return new ApiResponse<List<TransactionViewResponse>>(ex.Message);
         }
     }
+
+
+
+    private Expression<Func<Transaction, bool>> GetExpression(int accountId, int customerId, decimal amount, string description)
+    {
+        var predicate = PredicateBuilder.New<Transaction>(true);
+        if (!string.IsNullOrEmpty(description))
+            predicate.And(x => x.Description.StartsWith(description));
+        if (accountId > 0)
+            predicate.And(x => x.AccountId == accountId);
+        if (customerId > 0)
+            predicate.And(x => x.Account.CustomerId == customerId);
+        if (amount > 0)
+            predicate.And(x => x.Amount == amount);
+
+        return predicate;
+    }
+
+    private ApiResponse<CurrencyResponse> GetCurrency(int currencyId)
+    {
+        var cashe = redisService.GetDynamic<List<CurrencyResponse>>(RedisKeys.CurrencyList);
+        if (cashe == null)
+        {
+            return new ApiResponse<CurrencyResponse>("Invalid currency cashe");
+        }
+        var currency = cashe.Where(x => x.Id == currencyId).FirstOrDefault();
+        if (currency == null)
+        {
+            return new ApiResponse<CurrencyResponse>("Invalid currency cashe");
+        }
+        if (!currency.IsActive)
+        {
+            return new ApiResponse<CurrencyResponse>("Currency is not supported.");
+        }
+
+        return new ApiResponse<CurrencyResponse>(currency);
+    }
+
 }
+
+

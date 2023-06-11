@@ -17,6 +17,8 @@ public class TransactionView : BaseModel
     public string ReferenceNumber { get; set; }
     public string TransactionCode { get; set; }
 
+    public string CurrencyCode { get; set; }
+
     public int CustomerId { get; set; }
     public int AccountNumber { get; set; }
     public string AccountName { get; set; }
@@ -40,6 +42,7 @@ public class TransactionViewConfiguration : IEntityTypeConfiguration<Transaction
         builder.Property(x => x.UpdatedAt).IsRequired(false);
         builder.Property(x => x.UpdatedBy).IsRequired(false).HasMaxLength(30);
 
+        builder.Property(x => x.CurrencyCode).IsRequired(false).HasMaxLength(3);
         builder.Property(x => x.AccountId).IsRequired(true);
         builder.Property(x => x.Amount).IsRequired(true).HasPrecision(15, 2).HasDefaultValue(0);
         builder.Property(x => x.Description).IsRequired(true).HasMaxLength(30);

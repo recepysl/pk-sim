@@ -11,6 +11,9 @@ public class Account : BaseModel
     public int CustomerId { get; set; }
     public virtual Customer Customer { get; set; }
 
+    public int CurrencyId { get; set; }
+    public virtual Currency Currency { get; set; }
+
     public int AccountNumber { get; set; }
     public string Name { get; set; }
     public DateTime OpenDate { get; set; }
@@ -32,6 +35,8 @@ public class AccountConfiguration : IEntityTypeConfiguration<Account>
         builder.Property(x => x.UpdatedBy).IsRequired(false).HasMaxLength(30);
 
         builder.Property(x => x.CustomerId).IsRequired(true);
+        builder.Property(x => x.CurrencyId).IsRequired(true);
+
         builder.Property(x => x.AccountNumber).IsRequired(true);
         builder.Property(x => x.Name).IsRequired(true).HasMaxLength(30);
         builder.Property(x => x.OpenDate).IsRequired(true);

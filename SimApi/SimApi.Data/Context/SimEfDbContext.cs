@@ -33,7 +33,7 @@ public class SimEfDbContext : DbContext
         modelBuilder.ApplyConfiguration(new TransactionViewConfiguration());
         modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
 
-        modelBuilder.Ignore<TransactionView>();
+        modelBuilder.Entity<TransactionView>().Metadata.SetIsTableExcludedFromMigrations(true);
 
         base.OnModelCreating(modelBuilder);
     }

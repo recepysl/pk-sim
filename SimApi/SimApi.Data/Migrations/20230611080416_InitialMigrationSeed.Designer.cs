@@ -12,8 +12,8 @@ using SimApi.Data.Context;
 namespace SimApi.Data.Migrations
 {
     [DbContext(typeof(SimEfDbContext))]
-    [Migration("20230604113209_ViewReport")]
-    partial class ViewReport
+    [Migration("20230611080416_InitialMigrationSeed")]
+    partial class InitialMigrationSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,6 +48,9 @@ namespace SimApi.Data.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("character varying(30)");
 
+                    b.Property<int>("CurrencyId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
 
@@ -75,6 +78,8 @@ namespace SimApi.Data.Migrations
 
                     b.HasIndex("AccountNumber")
                         .IsUnique();
+
+                    b.HasIndex("CurrencyId");
 
                     b.HasIndex("CustomerId");
 
@@ -117,6 +122,54 @@ namespace SimApi.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("Category", "dbo");
+                });
+
+            modelBuilder.Entity("SimApi.Data.Currency", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("character varying(3)");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.Property<string>("Symbol")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("character varying(5)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("Currency", "dbo");
                 });
 
             modelBuilder.Entity("SimApi.Data.Customer", b =>
@@ -243,6 +296,11 @@ namespace SimApi.Data.Migrations
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(30)
                         .HasColumnType("character varying(30)");
+
+                    b.Property<string>("CurrencyCode")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("character varying(3)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -392,11 +450,19 @@ namespace SimApi.Data.Migrations
 
             modelBuilder.Entity("SimApi.Data.Account", b =>
                 {
+                    b.HasOne("SimApi.Data.Currency", "Currency")
+                        .WithMany("Accounts")
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SimApi.Data.Customer", "Customer")
                         .WithMany("Accounts")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Currency");
 
                     b.Navigation("Customer");
                 });
@@ -415,6 +481,11 @@ namespace SimApi.Data.Migrations
             modelBuilder.Entity("SimApi.Data.Account", b =>
                 {
                     b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("SimApi.Data.Currency", b =>
+                {
+                    b.Navigation("Accounts");
                 });
 
             modelBuilder.Entity("SimApi.Data.Customer", b =>

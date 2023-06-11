@@ -12,8 +12,8 @@ using SimApi.Data.Context;
 namespace SimApi.Data.Migrations
 {
     [DbContext(typeof(SimEfDbContext))]
-    [Migration("20230610115738_CurrencySeed")]
-    partial class CurrencySeed
+    [Migration("20230611080400_InitialMigrationView")]
+    partial class InitialMigrationView
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,6 +48,9 @@ namespace SimApi.Data.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("character varying(30)");
 
+                    b.Property<int>("CurrencyId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
 
@@ -75,6 +78,8 @@ namespace SimApi.Data.Migrations
 
                     b.HasIndex("AccountNumber")
                         .IsUnique();
+
+                    b.HasIndex("CurrencyId");
 
                     b.HasIndex("CustomerId");
 
@@ -138,6 +143,9 @@ namespace SimApi.Data.Migrations
                     b.Property<string>("CreatedBy")
                         .HasMaxLength(30)
                         .HasColumnType("character varying(30)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -289,6 +297,11 @@ namespace SimApi.Data.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("character varying(30)");
 
+                    b.Property<string>("CurrencyCode")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("character varying(3)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -437,11 +450,19 @@ namespace SimApi.Data.Migrations
 
             modelBuilder.Entity("SimApi.Data.Account", b =>
                 {
+                    b.HasOne("SimApi.Data.Currency", "Currency")
+                        .WithMany("Accounts")
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SimApi.Data.Customer", "Customer")
                         .WithMany("Accounts")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Currency");
 
                     b.Navigation("Customer");
                 });
@@ -460,6 +481,11 @@ namespace SimApi.Data.Migrations
             modelBuilder.Entity("SimApi.Data.Account", b =>
                 {
                     b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("SimApi.Data.Currency", b =>
+                {
+                    b.Navigation("Accounts");
                 });
 
             modelBuilder.Entity("SimApi.Data.Customer", b =>

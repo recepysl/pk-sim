@@ -52,14 +52,12 @@ public class RedisService : IRedisService
     {
         server.FlushAllDatabases();
     }
-
     public bool SetDynamic<T>(string key, T value)
     {
         string json = JsonConvert.SerializeObject(value);
         var val = database.StringSet(key, json);
         return val;
     }
-
     public T GetDynamic<T>(string key)
     {
         string json = database.StringGet(key);
