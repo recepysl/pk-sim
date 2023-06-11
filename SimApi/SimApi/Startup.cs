@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Hangfire;
+using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using SimApi.Base;
 using SimApi.Data.Uow;
@@ -41,6 +42,9 @@ public class Startup
         services.AddRepositoryExtension();
         services.AddServiceExtension();
         services.AddJwtExtension();
+        services.AddHangfireExtension(Configuration);
+
+
     }
 
 
@@ -63,6 +67,7 @@ public class Startup
         //DI
         app.AddExceptionHandler();
         app.AddDIExtension();
+        app.UseHangfireDashboard();
 
         app.UseMiddleware<HeartBeatMiddleware>();
         app.UseMiddleware<ErrorHandlerMiddleware>();

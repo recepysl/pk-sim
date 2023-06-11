@@ -1280,3 +1280,305 @@ QueryString:
 StatusCode: 200 
 Response Body: {"success":true,"message":"Success","response":[{"currencyCode":"ZWD","accountId":2,"amount":2000.00,"direction":0,"transactionDate":"2023-06-11T08:21:23.216559Z","description":"2-desc","referenceNumber":"7C1EBB981C","transactionCode":"DEPOSIT","customerId":1,"accountNumber":5001,"accountName":"5001","customerNumber":10001,"firstName":"10001","lastName":"10001","id":1},{"currencyCode":"ZWD","accountId":2,"amount":5000.00,"direction":0,"transactionDate":"2023-06-11T08:21:40.983686Z","description":"2-desc","referenceNumber":"25F8FF7A02","transactionCode":"DEPOSIT","customerId":1,"accountNumber":5001,"accountName":"5001","customerNumber":10001,"firstName":"10001","lastName":"10001","id":2},{"currencyCode":"ZWD","accountId":2,"amount":5000.00,"direction":0,"transactionDate":"2023-06-11T08:27:42.637169Z","description":"5000 key","referenceNumber":"8FF7CDB256","transactionCode":"DEPOSIT","customerId":1,"accountNumber":5001,"accountName":"5001","customerNumber":10001,"firstName":"10001","lastName":"10001","id":3},{"currencyCode":"ZWD","accountId":2,"amount":9000.00,"direction":0,"transactionDate":"2023-06-11T08:28:07.738011Z","description":"string","referenceNumber":"95867D5252","transactionCode":"DEPOSIT","customerId":1,"accountNumber":5001,"accountName":"5001","customerNumber":10001,"firstName":"10001","lastName":"10001","id":4},{"currencyCode":"ZWD","accountId":3,"amount":500.00,"direction":0,"transactionDate":"2023-06-11T08:29:12.422592Z","description":"string","referenceNumber":"DC9C836961","transactionCode":"TRANSF","customerId":1,"accountNumber":5002,"accountName":"5002","customerNumber":10001,"firstName":"10001","lastName":"10001","id":5},{"currencyCode":"ZWD","accountId":2,"amount":500.00,"direction":1,"transactionDate":"2023-06-11T08:29:17.020699Z","description":"string","referenceNumber":"DC9C836961","transactionCode":"TRANSF","customerId":1,"accountNumber":5001,"accountName":"5001","customerNumber":10001,"firstName":"10001","lastName":"10001","id":6}]}
 2023-06-11 11:31:13.216 [INF] -------------Request-End------------
+2023-06-11 13:47:06.451 [INF] Application is starting...
+2023-06-11 13:47:10.373 [INF] Start installing Hangfire SQL objects...
+2023-06-11 13:47:11.594 [INF] Hangfire SQL objects installed.
+2023-06-11 13:47:13.121 [INF] Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: simjob, Schema: hangfire'
+2023-06-11 13:47:13.123 [INF] Using the following options for SQL Server job storage:
+2023-06-11 13:47:13.124 [INF]     Queue poll interval: 00:10:00.
+2023-06-11 13:47:13.125 [INF]     Invisibility timeout: 00:05:00.
+2023-06-11 13:47:13.126 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2023-06-11 13:47:13.150 [DBG] Execution loop BackgroundServerProcess:6298ee18 has started in 15.2317 ms
+2023-06-11 13:47:13.165 [VRB] Server dxxb:20612:ab759348 is announcing itself...
+2023-06-11 13:47:13.728 [INF] Server dxxb:20612:ab759348 successfully announced in 550.7555 ms
+2023-06-11 13:47:14.803 [DBG] Execution loop ServerHeartbeatProcess:11fdbd43 has started in 112.586 ms
+2023-06-11 13:47:14.812 [INF] Server dxxb:20612:ab759348 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2023-06-11 13:47:14.896 [DBG] Execution loop ServerWatchdog:7dadf160 has started in 70.3047 ms
+2023-06-11 13:47:14.911 [VRB] Server dxxb:20612:ab759348 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:47:14.921 [DBG] Execution loop ServerJobCancellationWatcher:c657b4f4 has started in 55.0545 ms
+2023-06-11 13:47:14.927 [VRB] Checking for aborted jobs...
+2023-06-11 13:47:14.933 [VRB] No newly aborted jobs found.
+2023-06-11 13:47:14.944 [DBG] Execution loop ExpirationManager:830db012 has started in 33.2455 ms
+2023-06-11 13:47:14.950 [DBG] Execution loop CountersAggregator:9063adaa has started in 17.3921 ms
+2023-06-11 13:47:14.960 [DBG] Execution loop Worker:e20c9bbb has started in 15.9935 ms
+2023-06-11 13:47:14.968 [DBG] Aggregating records in 'Counter' table...
+2023-06-11 13:47:14.970 [DBG] Removing outdated records from table 'aggregatedcounter'...
+2023-06-11 13:47:14.966 [DBG] Execution loop Worker:43534efb has started in 22.6117 ms
+2023-06-11 13:47:14.993 [DBG] Execution loop Worker:20fe5b42 has started in 49.1282 ms
+2023-06-11 13:47:15.006 [VRB] Records from the 'Counter' table aggregated.
+2023-06-11 13:47:15.097 [DBG] Execution loop Worker:e02a7c14 has started in 153.1691 ms
+2023-06-11 13:47:15.189 [DBG] Execution loop Worker:8bd6d604 has started in 245.1006 ms
+2023-06-11 13:47:15.216 [DBG] Execution loop Worker:0c8a896a has started in 272.1364 ms
+2023-06-11 13:47:15.300 [DBG] Execution loop Worker:80ca2152 has started in 355.9442 ms
+2023-06-11 13:47:15.379 [DBG] Removing outdated records from table 'counter'...
+2023-06-11 13:47:15.378 [DBG] Execution loop Worker:58cbf11d has started in 434.5377 ms
+2023-06-11 13:47:15.402 [DBG] Execution loop Worker:1c83b2d1 has started in 458.4097 ms
+2023-06-11 13:47:15.413 [DBG] Execution loop Worker:09fff4a2 has started in 468.8557 ms
+2023-06-11 13:47:15.468 [DBG] Execution loop Worker:0d868ec5 has started in 513.2871 ms
+2023-06-11 13:47:15.556 [DBG] Execution loop Worker:188e0272 has started in 612.196 ms
+2023-06-11 13:47:15.583 [DBG] Removing outdated records from table 'job'...
+2023-06-11 13:47:15.596 [DBG] Removing outdated records from table 'list'...
+2023-06-11 13:47:15.596 [DBG] Execution loop Worker:b9c1d05a has started in 652.4921 ms
+2023-06-11 13:47:15.612 [DBG] Execution loop Worker:517873ff has started in 668.4604 ms
+2023-06-11 13:47:15.615 [DBG] Removing outdated records from table 'set'...
+2023-06-11 13:47:15.632 [DBG] Execution loop Worker:00468f60 has started in 688.4251 ms
+2023-06-11 13:47:15.639 [DBG] Execution loop Worker:7e7ef8d2 has started in 695.4288 ms
+2023-06-11 13:47:15.656 [DBG] Removing outdated records from table 'hash'...
+2023-06-11 13:47:15.648 [DBG] Execution loop Worker:291c04f9 has started in 704.5845 ms
+2023-06-11 13:47:15.662 [DBG] Execution loop Worker:6b019b30 has started in 718.5141 ms
+2023-06-11 13:47:15.684 [INF] Server dxxb:20612:ab759348 all the dispatchers started
+2023-06-11 13:47:15.669 [DBG] Execution loop Worker:ec307861 has started in 725.767 ms
+2023-06-11 13:47:15.677 [DBG] Execution loop Worker:764ef67d has started in 733.2352 ms
+2023-06-11 13:47:15.684 [DBG] Execution loop DelayedJobScheduler:9a853379 has started in 14.9362 ms
+2023-06-11 13:47:15.694 [DBG] Execution loop RecurringJobScheduler:de8eb4a3 has started in 15.4081 ms
+2023-06-11 13:47:19.952 [VRB] Checking for aborted jobs...
+2023-06-11 13:47:19.954 [VRB] No newly aborted jobs found.
+2023-06-11 13:47:24.957 [VRB] Checking for aborted jobs...
+2023-06-11 13:47:24.958 [VRB] No newly aborted jobs found.
+2023-06-11 13:47:29.961 [VRB] Checking for aborted jobs...
+2023-06-11 13:47:29.962 [VRB] No newly aborted jobs found.
+2023-06-11 13:47:35.044 [VRB] Checking for aborted jobs...
+2023-06-11 13:47:35.050 [VRB] No newly aborted jobs found.
+2023-06-11 13:51:27.899 [INF] Application is starting...
+2023-06-11 13:51:30.601 [INF] Start installing Hangfire SQL objects...
+2023-06-11 13:51:30.762 [INF] Hangfire SQL objects installed.
+2023-06-11 13:51:31.219 [INF] Starting Hangfire Server using job storage: 'PostgreSQL Server: Host: localhost, DB: simjob, Schema: hangfire'
+2023-06-11 13:51:31.221 [INF] Using the following options for SQL Server job storage:
+2023-06-11 13:51:31.222 [INF]     Queue poll interval: 00:10:00.
+2023-06-11 13:51:31.223 [INF]     Invisibility timeout: 00:05:00.
+2023-06-11 13:51:31.224 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2023-06-11 13:51:31.246 [DBG] Execution loop BackgroundServerProcess:a8e3bf5d has started in 13.5726 ms
+2023-06-11 13:51:31.261 [VRB] Server dxxb:8716:9de25ec5 is announcing itself...
+2023-06-11 13:51:31.585 [INF] Server dxxb:8716:9de25ec5 successfully announced in 322.2788 ms
+2023-06-11 13:51:31.594 [DBG] Execution loop ServerHeartbeatProcess:48b0605c has started in 5.4691 ms
+2023-06-11 13:51:31.595 [INF] Server dxxb:8716:9de25ec5 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2023-06-11 13:51:31.602 [DBG] Execution loop ServerWatchdog:aeb8d772 has started in 4.9287 ms
+2023-06-11 13:51:31.605 [DBG] Execution loop ServerJobCancellationWatcher:80be9570 has started in 7.6552 ms
+2023-06-11 13:51:31.611 [DBG] Execution loop ExpirationManager:0e55ad1b has started in 4.8362 ms
+2023-06-11 13:51:31.620 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:51:31.623 [VRB] Checking for aborted jobs...
+2023-06-11 13:51:31.633 [DBG] Removing outdated records from table 'aggregatedcounter'...
+2023-06-11 13:51:31.659 [VRB] No newly aborted jobs found.
+2023-06-11 13:51:31.614 [DBG] Execution loop CountersAggregator:c166b3e3 has started in 8.0364 ms
+2023-06-11 13:51:31.620 [DBG] Execution loop Worker:e2759b9e has started in 9.9075 ms
+2023-06-11 13:51:31.728 [DBG] Aggregating records in 'Counter' table...
+2023-06-11 13:51:31.623 [DBG] Execution loop Worker:0da90ff4 has started in 12.408 ms
+2023-06-11 13:51:31.844 [DBG] Removing outdated records from table 'counter'...
+2023-06-11 13:51:31.861 [VRB] Records from the 'Counter' table aggregated.
+2023-06-11 13:51:32.371 [INF] Server dxxb:8716:9de25ec5 all the dispatchers started
+2023-06-11 13:51:31.628 [DBG] Execution loop Worker:21268119 has started in 17.1352 ms
+2023-06-11 13:51:31.633 [DBG] Execution loop Worker:0d0c1889 has started in 22.5253 ms
+2023-06-11 13:51:31.637 [DBG] Execution loop Worker:54f3478b has started in 26.3496 ms
+2023-06-11 13:51:31.642 [DBG] Execution loop Worker:f239bef5 has started in 31.8531 ms
+2023-06-11 13:51:31.646 [DBG] Execution loop Worker:4ccfe175 has started in 35.9394 ms
+2023-06-11 13:51:31.649 [DBG] Execution loop Worker:df1271ab has started in 38.3498 ms
+2023-06-11 13:51:32.763 [DBG] Removing outdated records from table 'job'...
+2023-06-11 13:51:31.654 [DBG] Execution loop Worker:4360d954 has started in 43.9941 ms
+2023-06-11 13:51:31.666 [DBG] Execution loop Worker:f16a1600 has started in 55.5135 ms
+2023-06-11 13:51:31.671 [DBG] Execution loop Worker:0ed32e80 has started in 60.1496 ms
+2023-06-11 13:51:31.685 [DBG] Execution loop Worker:d5febe3d has started in 74.9386 ms
+2023-06-11 13:51:31.698 [DBG] Execution loop Worker:6e8ef196 has started in 87.247 ms
+2023-06-11 13:51:32.788 [DBG] Removing outdated records from table 'list'...
+2023-06-11 13:51:31.713 [DBG] Execution loop Worker:e676d3e8 has started in 102.6145 ms
+2023-06-11 13:51:31.731 [DBG] Execution loop Worker:bc52633a has started in 120.3544 ms
+2023-06-11 13:51:31.789 [DBG] Execution loop Worker:858f42c5 has started in 178.8223 ms
+2023-06-11 13:51:32.882 [DBG] Removing outdated records from table 'set'...
+2023-06-11 13:51:31.840 [DBG] Execution loop Worker:249bada8 has started in 229.4633 ms
+2023-06-11 13:51:32.192 [DBG] Execution loop Worker:0af30bf8 has started in 581.9499 ms
+2023-06-11 13:51:32.266 [DBG] Execution loop Worker:46a58255 has started in 655.0245 ms
+2023-06-11 13:51:32.318 [DBG] Execution loop Worker:756c2b83 has started in 707.823 ms
+2023-06-11 13:51:32.368 [DBG] Execution loop DelayedJobScheduler:c96f7bb1 has started in 78.7629 ms
+2023-06-11 13:51:32.481 [DBG] Execution loop RecurringJobScheduler:27c64395 has started in 141.8736 ms
+2023-06-11 13:51:32.926 [DBG] Removing outdated records from table 'hash'...
+2023-06-11 13:51:36.701 [VRB] Checking for aborted jobs...
+2023-06-11 13:51:36.836 [VRB] No newly aborted jobs found.
+2023-06-11 13:51:40.607 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-11 13:51:40.612 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-11 13:51:40.615 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-11 13:51:42.999 [VRB] Checking for aborted jobs...
+2023-06-11 13:51:44.765 [VRB] No newly aborted jobs found.
+2023-06-11 13:51:47.208 [INF] -------------Request-Begin------------
+2023-06-11 13:51:47.210 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/CurrencyJob/Update 
+QueryString:  
+Request Body: 
+2023-06-11 13:51:47.211 [INF] 
+
+2023-06-11 13:51:47.212 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/CurrencyJob/Update 
+QueryString:  
+StatusCode: 200 
+Response Body: {"success":true,"message":null}
+2023-06-11 13:51:47.214 [INF] -------------Request-End------------
+2023-06-11 13:51:49.780 [VRB] Checking for aborted jobs...
+2023-06-11 13:51:49.783 [VRB] No newly aborted jobs found.
+2023-06-11 13:51:53.786 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-11 13:51:53.787 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-11 13:51:53.788 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-11 13:51:53.791 [INF] -------------Request-Begin------------
+2023-06-11 13:51:53.793 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /han 
+QueryString:  
+Request Body: 
+2023-06-11 13:51:53.796 [INF] 
+
+2023-06-11 13:51:53.798 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /han 
+QueryString:  
+StatusCode: 404 
+Response Body: 
+2023-06-11 13:51:53.799 [INF] -------------Request-End------------
+2023-06-11 13:51:54.796 [VRB] Checking for aborted jobs...
+2023-06-11 13:51:54.797 [VRB] No newly aborted jobs found.
+2023-06-11 13:51:59.816 [VRB] Checking for aborted jobs...
+2023-06-11 13:51:59.818 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:01.653 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:52:01.656 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:52:04.823 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:04.825 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:09.827 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:09.828 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:14.831 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:14.832 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:19.835 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:19.837 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:24.839 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:24.841 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:29.843 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:29.844 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:31.663 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:52:31.664 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:52:34.847 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:34.848 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:39.850 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:39.851 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:44.852 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:44.854 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:49.856 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:49.857 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:54.862 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:54.863 [VRB] No newly aborted jobs found.
+2023-06-11 13:52:59.863 [VRB] Checking for aborted jobs...
+2023-06-11 13:52:59.864 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:01.667 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:53:01.668 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:53:04.867 [VRB] Checking for aborted jobs...
+2023-06-11 13:53:04.868 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:09.888 [VRB] Checking for aborted jobs...
+2023-06-11 13:53:09.889 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:14.893 [VRB] Checking for aborted jobs...
+2023-06-11 13:53:14.895 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:19.896 [VRB] Checking for aborted jobs...
+2023-06-11 13:53:19.897 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:24.899 [VRB] Checking for aborted jobs...
+2023-06-11 13:53:24.900 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:29.903 [VRB] Checking for aborted jobs...
+2023-06-11 13:53:29.904 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:31.674 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:53:31.675 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:53:34.905 [VRB] Checking for aborted jobs...
+2023-06-11 13:53:34.907 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:39.908 [VRB] Checking for aborted jobs...
+2023-06-11 13:53:39.909 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:44.911 [VRB] Checking for aborted jobs...
+2023-06-11 13:53:44.912 [VRB] No newly aborted jobs found.
+2023-06-11 13:53:48.091 [DBG] 1 scheduled job(s) processed by scheduler.
+2023-06-11 13:53:59.529 [VRB] Checking for aborted jobs...
+2023-06-11 13:54:00.467 [VRB] No newly aborted jobs found.
+2023-06-11 13:54:01.430 [WRN] The 'bool' property 'IsValid' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-11 13:54:01.433 [WRN] The 'bool' property 'IsValid' on entity type 'Customer' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-11 13:54:01.679 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:54:01.681 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:54:09.357 [VRB] Checking for aborted jobs...
+2023-06-11 13:54:09.359 [VRB] No newly aborted jobs found.
+2023-06-11 13:54:14.369 [VRB] Checking for aborted jobs...
+2023-06-11 13:54:14.371 [VRB] No newly aborted jobs found.
+2023-06-11 13:54:19.390 [VRB] Checking for aborted jobs...
+2023-06-11 13:54:19.396 [VRB] No newly aborted jobs found.
+2023-06-11 13:54:24.400 [VRB] Checking for aborted jobs...
+2023-06-11 13:54:24.401 [VRB] No newly aborted jobs found.
+2023-06-11 13:54:29.402 [VRB] Checking for aborted jobs...
+2023-06-11 13:54:29.403 [VRB] No newly aborted jobs found.
+2023-06-11 13:54:31.688 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:54:31.689 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:54:34.407 [VRB] Checking for aborted jobs...
+2023-06-11 13:54:34.412 [VRB] No newly aborted jobs found.
+2023-06-11 13:54:42.039 [VRB] Checking for aborted jobs...
+2023-06-11 13:54:43.367 [VRB] No newly aborted jobs found.
+2023-06-11 13:54:50.362 [VRB] Checking for aborted jobs...
+2023-06-11 13:54:50.370 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:01.147 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:01.172 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:01.697 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:55:01.698 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:55:06.195 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:06.199 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:11.201 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:11.202 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:16.204 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:16.207 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:21.207 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:21.208 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:26.209 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:26.210 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:31.214 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:31.215 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:31.705 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:55:31.706 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:55:36.218 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:36.219 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:41.219 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:41.221 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:46.225 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:46.226 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:51.231 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:51.232 [VRB] No newly aborted jobs found.
+2023-06-11 13:55:56.234 [VRB] Checking for aborted jobs...
+2023-06-11 13:55:56.235 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:01.237 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:01.238 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:01.714 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:56:01.715 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:56:06.240 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:06.241 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:11.244 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:11.245 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:16.248 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:16.249 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:21.251 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:21.252 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:26.254 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:26.255 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:31.257 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:31.258 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:31.648 [INF] 1 servers were removed due to timeout
+2023-06-11 13:56:31.721 [DBG] Server dxxb:8716:9de25ec5 heartbeat successfully sent
+2023-06-11 13:56:31.722 [VRB] Server dxxb:8716:9de25ec5 waiting for 00:00:30 delay before sending a heartbeat
+2023-06-11 13:56:32.394 [DBG] Aggregating records in 'Counter' table...
+2023-06-11 13:56:32.400 [VRB] Records from the 'Counter' table aggregated.
+2023-06-11 13:56:36.261 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:36.262 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:41.264 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:41.265 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:46.267 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:46.268 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:51.269 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:51.271 [VRB] No newly aborted jobs found.
+2023-06-11 13:56:56.276 [VRB] Checking for aborted jobs...
+2023-06-11 13:56:56.277 [VRB] No newly aborted jobs found.

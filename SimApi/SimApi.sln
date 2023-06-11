@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimApi.Schema", "SimApi.Sch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimApi.Operation", "SimApi.Operation\SimApi.Operation.csproj", "{21134E2F-734A-4675-98FA-B2638639A5F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimApi.Test", "SimApi.Test\SimApi.Test.csproj", "{BF21EAE1-095E-443F-80EA-29F1023D5F9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimApi.Test", "SimApi.Test\SimApi.Test.csproj", "{BF21EAE1-095E-443F-80EA-29F1023D5F9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimApi.WorkerService", "SimApi.WorkerService\SimApi.WorkerService.csproj", "{981C5A2C-DD32-4FED-98EB-A8D106746A73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimApi.Jobs", "SimApi.Jobs\SimApi.Jobs.csproj", "{33166D25-4F5C-4555-9D80-EA9B8FAD69D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{BF21EAE1-095E-443F-80EA-29F1023D5F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF21EAE1-095E-443F-80EA-29F1023D5F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF21EAE1-095E-443F-80EA-29F1023D5F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{981C5A2C-DD32-4FED-98EB-A8D106746A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{981C5A2C-DD32-4FED-98EB-A8D106746A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{981C5A2C-DD32-4FED-98EB-A8D106746A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{981C5A2C-DD32-4FED-98EB-A8D106746A73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33166D25-4F5C-4555-9D80-EA9B8FAD69D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33166D25-4F5C-4555-9D80-EA9B8FAD69D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33166D25-4F5C-4555-9D80-EA9B8FAD69D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33166D25-4F5C-4555-9D80-EA9B8FAD69D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
