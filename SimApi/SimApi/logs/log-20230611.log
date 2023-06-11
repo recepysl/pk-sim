@@ -1,0 +1,148 @@
+2023-06-11 09:32:07.977 [INF] Application is starting...
+2023-06-11 09:32:53.638 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-11 09:32:53.653 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-11 09:32:53.656 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-11 09:33:35.226 [FTL] Path=/simapi/v1/UserLogs || Method=GET || Exception=It was not possible to connect to the redis server(s). Error connecting right now. To allow this multiplexer to continue retrying until it's able to connect, use abortConnect=false in your connection string or AbortOnConnectFail=false; in your code.
+2023-06-11 09:33:35.273 [ERR] An unhandled exception has occurred while executing the request.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id b0560ec1-febb-4037-b921-a9b5c6a2c4ca and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1453
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 997
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at SimApi.Service.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\RepoRy\pk-sim\SimApi\SimApi\Middleware\ErrorHandlerMiddleware.cs:line 33
+   at SimApi.Service.Middleware.HeartBeatMiddleware.Invoke(HttpContext context) in C:\RepoRy\pk-sim\SimApi\SimApi\Middleware\HeartBeatMiddleware.cs:line 25
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-06-11 09:33:35.341 [ERR] An exception was thrown attempting to display the error page.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id b0560ec1-febb-4037-b921-a9b5c6a2c4ca and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1453
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 997
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-06-11 09:33:35.352 [ERR] Connection id "0HMRA8MB4M5H1", Request id "0HMRA8MB4M5H1:00000009": An unhandled exception was thrown by the application.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'The stream with Id b0560ec1-febb-4037-b921-a9b5c6a2c4ca and Tag  is disposed.'.
+   at Microsoft.IO.RecyclableMemoryStream.ThrowDisposedException() in /_/src/RecyclableMemoryStream.cs:line 1453
+   at Microsoft.IO.RecyclableMemoryStream.Write(Byte[] buffer, Int32 offset, Int32 count) in /_/src/RecyclableMemoryStream.cs:line 997
+   at System.IO.MemoryStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at System.IO.Pipelines.StreamPipeWriter.FlushAsyncInternal(Boolean writeToStream, ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at SimApi.Service.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\RepoRy\pk-sim\SimApi\SimApi\Middleware\ErrorHandlerMiddleware.cs:line 33
+   at SimApi.Service.Middleware.HeartBeatMiddleware.Invoke(HttpContext context) in C:\RepoRy\pk-sim\SimApi\SimApi\Middleware\HeartBeatMiddleware.cs:line 25
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2023-06-11 09:33:41.359 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-11 09:33:41.361 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-11 09:33:41.362 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-11 09:34:16.101 [WRN] The 'bool' property 'IsValid' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-11 09:34:16.106 [WRN] The 'bool' property 'IsValid' on entity type 'Customer' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-11 09:34:46.347 [INF] -------------Request-Begin------------
+2023-06-11 09:34:46.349 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs 
+QueryString: ?username=string 
+Request Body: 
+2023-06-11 09:34:46.350 [INF] 
+
+2023-06-11 09:34:46.351 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-11 09:34:46.354 [INF] -------------Request-End------------
+2023-06-11 09:34:50.771 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-11 09:34:50.773 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-11 09:34:50.774 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-11 09:35:21.724 [INF] -------------Request-Begin------------
+2023-06-11 09:35:21.730 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs 
+QueryString: ?username=string 
+Request Body: 
+2023-06-11 09:35:21.732 [INF] 
+
+2023-06-11 09:35:21.733 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-11 09:35:21.737 [INF] -------------Request-End------------
+2023-06-11 09:35:34.623 [INF] Application is starting...
+2023-06-11 09:35:54.130 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-11 09:35:54.136 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-11 09:35:54.139 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-11 09:36:07.514 [INF] -------------Request-Begin------------
+2023-06-11 09:36:07.515 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs 
+QueryString: ?username=string 
+Request Body: 
+2023-06-11 09:36:07.516 [INF] 
+
+2023-06-11 09:36:07.517 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-11 09:36:07.520 [INF] -------------Request-End------------
+2023-06-11 09:36:20.096 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-11 09:36:20.099 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-11 09:36:20.101 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-11 09:37:04.194 [WRN] The 'bool' property 'IsValid' on entity type 'Account' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-11 09:37:04.213 [WRN] The 'bool' property 'IsValid' on entity type 'Customer' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2023-06-11 09:37:13.955 [INF] -------------Request-Begin------------
+2023-06-11 09:37:13.958 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs 
+QueryString: ?username=string 
+Request Body: 
+2023-06-11 09:37:13.967 [INF] 
+
+2023-06-11 09:37:13.969 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":"Success","response":[{"userName":"string","transactionDate":"2023-05-21T07:58:46.377331Z","logType":"InValidUserStatus","id":1},{"userName":"string","transactionDate":"2023-06-04T06:24:34.716154Z","logType":"InValidUserStatus","id":2},{"userName":"string","transactionDate":"2023-06-04T06:25:23.433463Z","logType":"InValidUserStatus","id":3},{"userName":"string","transactionDate":"2023-06-04T06:27:07.24588Z","logType":"InValidUserStatus","id":4},{"userName":"string","transactionDate":"2023-06-04T06:27:23.061066Z","logType":"InValidUserStatus","id":5},{"userName":"string","transactionDate":"2023-06-04T06:28:26.533299Z","logType":"InValidUserStatus","id":6},{"userName":"string","transactionDate":"2023-06-04T06:28:44.950639Z","logType":"InValidUserStatus","id":7}]}
+2023-06-11 09:37:13.978 [INF] -------------Request-End------------
+2023-06-11 09:37:27.400 [INF] LogHeartBeatMiddleware.Invoke
+2023-06-11 09:37:27.401 [INF] LogErrorHandlerMiddleware.Invoke
+2023-06-11 09:37:27.403 [INF] LogRequestLoggingMiddleware.Invoke
+2023-06-11 09:37:37.365 [INF] -------------Request-Begin------------
+2023-06-11 09:37:37.370 [INF] Http Request Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs/InvalidateCache 
+QueryString: ?username=string 
+Request Body: 
+2023-06-11 09:37:37.374 [INF] 
+
+2023-06-11 09:37:37.375 [INF] Http Response Information: 
+Schema:https 
+Host: localhost:7235 
+Path: /simapi/v1/UserLogs/InvalidateCache 
+QueryString: ?username=string 
+StatusCode: 200 
+Response Body: {"success":true,"message":null}
+2023-06-11 09:37:37.377 [INF] -------------Request-End------------

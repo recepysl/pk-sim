@@ -32,10 +32,8 @@ public class Startup
             Location = ResponseCacheLocation.Any
         }));
         services.AddResponseCompression();
-
         services.AddMemoryCache();
         services.AddRedisExtension(Configuration);
-
         services.AddCustomSwaggerExtension();
         services.AddDbContextExtension(Configuration);
         services.AddScoped<IUnitOfWork, UnitOfWork>();
