@@ -1,4 +1,4 @@
-﻿namespace SimApi.Service.CustomService;
+﻿namespace  SimApi.Rest.CustomService;
 
 public class ScopedService
 {

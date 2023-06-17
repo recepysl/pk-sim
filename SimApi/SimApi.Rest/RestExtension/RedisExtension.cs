@@ -1,6 +1,8 @@
-﻿using StackExchange.Redis;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using StackExchange.Redis;
 
-namespace SimApi.Service.RestExtension;
+namespace SimApi.Rest;
 
 public static class RedisExtension
 {

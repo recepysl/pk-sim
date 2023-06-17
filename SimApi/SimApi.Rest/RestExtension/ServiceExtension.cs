@@ -1,7 +1,8 @@
-﻿using SimApi.Operation;
-using SimApi.Service.CustomService;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SimApi.Operation;
+using  SimApi.Rest.CustomService;
 
-namespace SimApi.Service.RestExtension;
+namespace SimApi.Rest;
 
 public static class ServiceExtension
 {

@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using SimApi.Data.Context;
 
-namespace SimApi.Service.RestExtension;
+namespace SimApi.Rest;
 
 public static class DbContextExtension
 {

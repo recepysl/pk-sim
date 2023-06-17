@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace SimApi.Service.RestExtension;
+namespace SimApi.Rest;
 
 public static class CustomSwaggerExtension
 {

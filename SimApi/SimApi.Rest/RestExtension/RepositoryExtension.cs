@@ -1,6 +1,7 @@
-﻿using SimApi.Data.Repository;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SimApi.Data.Repository;
 
-namespace SimApi.Service.RestExtension;
+namespace SimApi.Rest;
 
 public static class RepositoryExtension
 {

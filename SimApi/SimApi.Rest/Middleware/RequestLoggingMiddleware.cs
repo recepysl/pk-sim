@@ -1,8 +1,9 @@
-﻿using Microsoft.IO;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.IO;
 using Serilog;
 using SimApi.Base;
 
-namespace SimApi.Service.Middleware;
+namespace  SimApi.Rest.Middleware;
 
 public class RequestLoggingMiddleware
 {

@@ -1,12 +1,13 @@
-﻿using Hangfire;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using SimApi.Base;
-using SimApi.Data.Uow;
+using SimApi.Data;
 using SimApi.Rest;
 using SimApi.Rest.Middleware;
 
-namespace SimApi.Service;
+namespace SimApi.Identity;
 
 public class Startup
 {
@@ -32,17 +33,43 @@ public class Startup
             NoStore = false,
             Location = ResponseCacheLocation.Any
         }));
-        services.AddResponseCompression();
-        services.AddMemoryCache();
-        services.AddRedisExtension(Configuration);
+
+        services.AddResponseCompression();     
         services.AddCustomSwaggerExtension();
-        services.AddDbContextExtension(Configuration);
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
-        services.AddMapperExtension();
-        services.AddRepositoryExtension();
-        services.AddServiceExtension();
         services.AddJwtExtension(Configuration);
-        services.AddHangfireExtension(Configuration);
+
+
+        var dbtype = Configuration.GetConnectionString("DbType");
+        if (dbtype == "SQL")
+        {
+            var dbConfig = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<SimIdentityDbContext>(options => options
+               .UseSqlServer(dbConfig)
+               );
+        }
+        else if (dbtype == "PostgreSQL")
+        {
+            var dbConfig = Configuration.GetConnectionString("PostgreSqlConnection");
+            services.AddDbContext<SimIdentityDbContext>(options => options
+               .UseNpgsql(dbConfig)
+               );
+        }
+
+        // identity
+        services.AddIdentity<ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<SimIdentityDbContext>();
+
+
+        // identity options
+        services.Configure<IdentityOptions>(options =>
+        {
+            options.Password.RequireDigit = false;
+            options.Password.RequiredLength = 6;
+            options.Password.RequireLowercase = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequiredUniqueChars = 1;
+        });
 
 
     }
@@ -67,7 +94,6 @@ public class Startup
         //DI
         app.AddExceptionHandler();
         app.AddDIExtension();
-        app.UseHangfireDashboard();
 
         app.UseMiddleware<HeartBeatMiddleware>();
         app.UseMiddleware<ErrorHandlerMiddleware>();

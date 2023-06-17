@@ -1,7 +1,8 @@
-﻿using Serilog;
+﻿using Microsoft.AspNetCore.Http;
+using Serilog;
 using System.Text.Json;
 
-namespace SimApi.Service.Middleware;
+namespace  SimApi.Rest.Middleware;
 
 public class HeartBeatMiddleware
 {

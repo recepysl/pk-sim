@@ -1,7 +1,9 @@
 ﻿using Hangfire;
 using Hangfire.PostgreSql;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace SimApi.Service.RestExtension;
+namespace SimApi.Rest;
 
 public static class HangfireExtension
 {

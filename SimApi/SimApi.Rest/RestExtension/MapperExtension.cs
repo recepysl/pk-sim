@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 using SimApi.Schema;
 
-namespace SimApi.Service.RestExtension;
+namespace SimApi.Rest;
 
 public static class MapperExtension
 {

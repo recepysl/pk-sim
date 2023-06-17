@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Serilog;
 using SimApi.Base;
 using System.Net;
 
-namespace SimApi.Service.RestExtension;
+namespace SimApi.Rest;
 
 public static class DIExtension
 {
