@@ -9,9 +9,9 @@ namespace SimApi.Identity;
 [ApiController]
 public class UserController : ControllerBase
 {
-    private readonly IIdentityUserService service;
+    private readonly IUserService service;
 
-    public UserController(IIdentityUserService service)
+    public UserController(IUserService service)
     {
         this.service = service;
     }
@@ -28,6 +28,20 @@ public class UserController : ControllerBase
     {
         var model = await service.GetById(id);
         return model;
+    }
+
+    [HttpGet("GetUser")]
+    public async Task<ApiResponse<ApplicationUserResponse>> GetUser()
+    {
+        var response = await service.GetUser(HttpContext.User);
+        return response;
+    }
+
+    [HttpGet("GetUserId")]
+    public async Task<ApiResponse<string>> GetUserId()
+    {
+        var response = await service.GetUserId(HttpContext.User);
+        return response;
     }
 
     [HttpPost]

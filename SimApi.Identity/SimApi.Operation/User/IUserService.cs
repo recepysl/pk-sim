@@ -4,12 +4,9 @@ using System.Security.Claims;
 
 namespace SimApi.Operation;
 
-public interface IIdentityUserService
+public interface IUserService
 {
-    public Task<ApiResponse<TokenResponse>> SignIn(TokenRequest request);
-    public Task<ApiResponse> SignOut();
     public Task<ApiResponse<ApplicationUserResponse>> GetUser(ClaimsPrincipal User);
-    public Task<ApiResponse> ChangePassword(ClaimsPrincipal User, ChangePasswordRequest request);
     public Task<ApiResponse> Insert(ApplicationUserRequest request);
     public Task<ApiResponse> Update(ApplicationUserRequest request);
     public Task<ApiResponse> Delete(string id);

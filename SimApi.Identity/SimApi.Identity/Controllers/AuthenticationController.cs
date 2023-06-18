@@ -9,9 +9,9 @@ namespace SimApi.Identity;
 [ApiController]
 public class AuthenticationController : ControllerBase
 {
-    private readonly IIdentityUserService service;
+    private readonly IAuthenticationService service;
 
-    public AuthenticationController(IIdentityUserService service)
+    public AuthenticationController(IAuthenticationService service)
     {
         this.service = service;
     }
@@ -35,21 +35,5 @@ public class AuthenticationController : ControllerBase
     {
         var model = await service.ChangePassword(HttpContext.User,request);
         return model;
-    }
-
-    [HttpGet("GetUser")]
-    public async Task<ApiResponse<ApplicationUserResponse>> GetUser()
-    {
-        var response = await service.GetUser(HttpContext.User);
-        return response;
-    }
-
-    [HttpGet("GetUserId")]
-    public async Task<ApiResponse<string>> GetUserId()
-    {
-        var response = await service.GetUserId(HttpContext.User);
-        return response;
-    }
-
-    
+    }    
 }

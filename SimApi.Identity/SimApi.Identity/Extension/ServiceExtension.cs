@@ -8,6 +8,6 @@ public static class ServiceExtension
     {
         services.AddScoped<IAccountService, AccountService>();
         services.AddScoped<ITransactionService, TransactionService>();
-        services.AddScoped<IIdentityUserService, IdentityUserService>();
+        services.AddScoped<IAuthenticationService, AuthenticationService>();
     }
 }
