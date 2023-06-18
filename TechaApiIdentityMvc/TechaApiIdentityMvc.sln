@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechaApiIdentityMvc", "TechaApiIdentityMvc\TechaApiIdentityMvc.csproj", "{4F2BC966-9643-470B-AAB5-0768AE3C55FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F2BC966-9643-470B-AAB5-0768AE3C55FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F2BC966-9643-470B-AAB5-0768AE3C55FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F2BC966-9643-470B-AAB5-0768AE3C55FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F2BC966-9643-470B-AAB5-0768AE3C55FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54907EC9-0E86-4309-B929-15B1A792C60A}
+	EndGlobalSection
+EndGlobal
