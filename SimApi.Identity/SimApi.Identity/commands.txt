@@ -1,0 +1,6 @@
+﻿
+migration add (on Data project directory)
+dotnet ef migrations add InitialMigration -s ../SimApi.Identity/
+
+update database (on sln directory)
+dotnet ef database update --project "./SimApi.Data" --startup-project "./SimApi.Identity"

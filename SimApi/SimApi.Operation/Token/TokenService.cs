@@ -31,7 +31,7 @@ public class TokenService : ITokenService
         }
         if (string.IsNullOrEmpty(request.UserName) || string.IsNullOrEmpty(request.Password))
         {
-            return new ApiResponse<TokenResponse>("Request props was null");
+            return new ApiResponse<TokenResponse>("Request was null");
         }
 
         request.UserName = request.UserName.Trim().ToLower();
